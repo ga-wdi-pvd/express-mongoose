@@ -53,30 +53,27 @@
 
 > Should this be a You Do? An I Do or We Do if there is time at end of lesson? Do we expect to get to this point in the lesson?  
 
+--------------
 
+## Skills
 
+### MVC in Express
+* Introduce
+* Build
+* Polish
 
+### Express & Mongoose
+* Retrieve
+* Create
+* Update
 
-Skills:
+### Mongoose Associations / Relationships
 
-- MVC in Express
-  - Introduce
-  - Build
-  - Polish
-- Express & Mongoose
-  - Retrieve
-  - Create
-  - Update
-  - Mongoose relationships/associations
-- Routes
-- Extracting to files: require/exports (who?)
-- Views:
-  - review: config, file location, layout
-  - new: form to controller (params/bodyParser), post vs. put/patch requests
-  - optional: partials, json requests (bodyParser)
-  -
-- Adding mongoose to WhenPrezi (:index, then :show)
-- add (I-Do) new/create,  (You-Do) edit/update/delete (hint: post)
-- Mongoose relationships/associations (who?)
+### Routes
 
-## Learning Objectives
+### Extracting to files: require/exports (who?)
+
+### Views
+* Review: config, file location, layout
+* New: form to controller (params/bodyParser), post vs. put/patch requests
+* Optional: partials, json requests (bodyParser)
