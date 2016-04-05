@@ -14,7 +14,7 @@
 ### New Details
 * What is new in Express that is not covered in the MVC overview?
 
-### Exercise: 99 Bottles with Views / Ultimate Compliment (Optional)
+### Exercise: 99 Bottles with Views (Optional)
 
 > Is there time for this exercise? Does it make sense to include?  
 
