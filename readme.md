@@ -1,28 +1,57 @@
 # Express MVC and the Big Picture
 
-## Agenda
+## Learning Objectives
 
-- Express review
-  - Exercise (Build On What You Know): empty diagram
-    - New Details??:
-  - Exercise: 99Bottles with Views, UltimateCompliment
+* Identify how an Express app fits within the MVC framework.
+* Connect an Express app with a database using MongoDB.
+* Implement CRUD functionality in an Express app using Mongoose.
+* Refactor an express app into multiple files.
 
-- Mongoose index
-- Mongoose Show
-- Express Forms
-  - Review/dive deeper (files, layouts)
-  - Feature: new/create
-    - discuss steps (2 requests)
-    - You-Do: new
-      - scaffolded (each MVC component {TT, implement})
-      - bonus
-    - We-Do???: create (bodyParser)
-    - bonus
-  - Feature: edit/update
-    - You-Do: (hint - slight delay??): post/put/patch)
-  - Feature: Delete
-    - You-Do
-  - Refactor: extract to files
+## Express Review
+
+### Exercise: Build On What You Know - MVC Diagram
+
+### New Details
+* What is new in Express that is not covered in the MVC overview?
+
+### Exercise: 99 Bottles with Views / Ultimate Compliment (Optional)
+
+> Is there time for this exercise? Does it make sense to include?  
+
+## Mongoose
+
+### Index
+
+### Show
+
+### Express Forms
+* Review & Deep Dive: Files, Layouts
+
+### Feature: New/Create
+* Discuss steps (i.e., 2 requests)
+
+#### You Do: New
+* Scaffolded: Identify each MVC component via T&T, then implement.
+* Bonuses
+
+#### We Do: Create
+* Cover body-parser
+* Bonuses?
+
+### Feature: Edit/Update
+
+#### You-Do: Edit
+* Hint: POST / PUT / PATCH  
+
+> How much of a hint should we give?  
+
+### Feature: Delete
+
+#### You Do: Delete
+
+### Refactor: Extract to Files
+
+> Should this be a You Do? An I Do or We Do if there is time at end of lesson? Do we expect to get to this point in the lesson?  
 
 
 
