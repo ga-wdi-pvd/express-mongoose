@@ -23,7 +23,35 @@
 
 ### Connect to Mongoose
 
+* Why are we using Mongoose?
+
+In order for us to use Mongoose to communicate with our database, we need to link it up to our Express application.
+
+* Do we need Mongo and Mongoose installation instructions here?
+
 ![Connect to Mongoose](/img/connect-to-mongoose.png)
+
+> **require("mongoose")** - In order to reference Mongoose, we need to require its corresponding node module and save it in a variable we can reference later.  
+>  
+> **mongoose.Schema( )** - We use Mongoose's schema method to define a blueprint for our Candidate model (i.e., what attributes it will have and what data types they will be).  
+>  
+> **mongoose.model( )** - We attach our schema to our model by passing in two arguments to this method: (1) the desired name of our model ("Candidate") and (2) the pre-defined schema.  
+>  
+> **mongoose.connect** - We also need to link Mongoose to our `whenpresident` Mongo database.  
+
+Mongoose is now connected to our Express application. Now let's seed some data into our database using Mongoose.
+
+In `connection.js` we need to...
+  1. Remove any references to seed data from `connection.js`.  
+  2. Set `module.exports = mongoose`.
+
+We will also create a new `db/seeds.js` file, in which we will...
+  1. Require `connection.js` and `seeds.json`, saving them to their own `mongoose` and `seedData` variables respectively.  
+  2. Define a `Candidate` variable that will contain our Mongoose model definition.
+  3. Write Mongoose code that...
+  - Clears the database of all data, and `.then`...
+  - Inserts our seed data into the database, and `.then`...
+  - Calls `process.exit()`.
 
 ![Add Seed Data to DB 1](/img/add-seed-to-db-1.png)
 
