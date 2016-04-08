@@ -31,7 +31,7 @@ In order for us to use Mongoose to communicate with our database, we need to lin
 
 ![Connect to Mongoose](/img/connect-to-mongoose.png)
 
-> **require("mongoose")** - In order to reference Mongoose, we need to require its corresponding node module and save it in a variable we can reference later.  
+> **`var mongoose = require("mongoose")`** - In order to reference Mongoose, we need to require its corresponding node module and save it in a variable we can reference later.  
 >  
 > **mongoose.Schema( )** - We use Mongoose's schema method to define a blueprint for our Candidate model (i.e., what attributes it will have and what data types they will be).  
 >  
@@ -45,7 +45,7 @@ In `connection.js` we need to...
   1. Remove any references to seed data from `connection.js`.  
   2. Set `module.exports = mongoose`.
 
-We will also create a new `db/seeds.js` file, in which we will...
+Now, create a new `db/seeds.js` file. In it we will...
   1. Require `connection.js` and `seeds.json`, saving them to their own `mongoose` and `seedData` variables respectively.  
   2. Define a `Candidate` variable that will contain our Mongoose model definition.
   3. Write Mongoose code that...
@@ -55,7 +55,17 @@ We will also create a new `db/seeds.js` file, in which we will...
 
 ![Add Seed Data to DB 1](/img/add-seed-to-db-1.png)
 
+> Notice that `connection.js` no longer contains any reference to seed data. It now only serves as a connection between our application and database.  
+
 ![Add Seed Data to DB 2](/img/add-seed-to-db-2.png)
+
+> **var mongoose = require("./connection")** - Note that this time `var mongoose` is not set to `require("mongoose")`. Instead, it represents a connection to our database.  
+>  
+> **var Candidate = mongoose.model("Candidate")** - Because we defined our model in `connection.js`, we can reference it like so.  
+>  
+> **Candidate.remove({})** - This clears our entire database. We're not passing in any parameters, so Mongoose interprets this command as delete anything!  
+>  
+> **Candidate.collection.insert(seedData)** - Create a collection using the JSON contained in our seed file.  
 
 ### Index
 
