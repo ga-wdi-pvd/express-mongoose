@@ -21,23 +21,32 @@
 
 ## Mongoose
 
-### Connect to Mongoose
 
-* Why are we using Mongoose?
+#### Why are we using Mongoose?
+
+Like ActiveRecord for Rails, Mongoose is an ORM we can use to represent data from a Mongo database as models in a Javascript back-end.
+
+#### Connect to Mongoose
 
 In order for us to use Mongoose to communicate with our database, we need to link it up to our Express application.
 
-* Do we need Mongo and Mongoose installation instructions here?
+In order to do that, we will make the following changes to `connection.js`...
+  1. Require "mongoose" and save it to a `mongoose` variable.
+  2. Define a `CandidateSchema` using mongoose's `.Schema()` method.
+  3. Define a "Candidate" model built off `CandidateSchema` with `mongoose.model()`.
+  4. Connect to our `whenpresident` database using `mongoose.connect()`.
 
 ![Connect to Mongoose](/img/connect-to-mongoose.png)
 
 > **`var mongoose = require("mongoose")`** - In order to reference Mongoose, we need to require its corresponding node module and save it in a variable we can reference later.  
 >  
-> **mongoose.Schema( )** - We use Mongoose's schema method to define a blueprint for our Candidate model (i.e., what attributes it will have and what data types they will be).  
+> **`mongoose.Schema( )`** - We use Mongoose's schema method to define a blueprint for our Candidate model (i.e., what attributes it will have and what data types they will be).  
 >  
-> **mongoose.model( )** - We attach our schema to our model by passing in two arguments to this method: (1) the desired name of our model ("Candidate") and (2) the pre-defined schema.  
+> **`mongoose.model( )`** - We attach our schema to our model by passing in two arguments to this method: (1) the desired name of our model ("Candidate") and (2) the pre-defined schema.  
 >  
-> **mongoose.connect** - We also need to link Mongoose to our `whenpresident` Mongo database.  
+> **`mongoose.connect`** - We also need to link Mongoose to our `whenpresident` Mongo database.  
+
+#### Seed the Database
 
 Mongoose is now connected to our Express application. Now let's seed some data into our database using Mongoose.
 
@@ -59,19 +68,28 @@ Now, create a new `db/seeds.js` file. In it we will...
 
 ![Add Seed Data to DB 2](/img/add-seed-to-db-2.png)
 
-> **var mongoose = require("./connection")** - Note that this time `var mongoose` is not set to `require("mongoose")`. Instead, it represents a connection to our database.  
+> **`var mongoose = require("./connection")`** - Note that this time `var mongoose` is not set to `require("mongoose")`. Instead, it represents a connection to our database.  
 >  
-> **var Candidate = mongoose.model("Candidate")** - Because we defined our model in `connection.js`, we can reference it like so.  
+> **`var Candidate = mongoose.model("Candidate")`** - Because we defined our model in `connection.js`, we can reference it like so.  
 >  
-> **Candidate.remove({})** - This clears our entire database. We're not passing in any parameters, so Mongoose interprets this command as delete anything!  
+> **`Candidate.remove({})`** - This clears our entire database. We're not passing in any parameters, so Mongoose interprets this command as delete anything!  
 >  
-> **Candidate.collection.insert(seedData)** - Create a collection using the JSON contained in our seed file.  
+> **`Candidate.collection.insert(seedData)`** - Create a collection using the JSON contained in our seed file.  
 
-### Index
+#### Feature: Index
+
+First order of business: give our Express application index functionality (i.e., display all presidents stored in the database).  
+
+In `index.js`, let's make some changes to our variable definitions...
+  1. Rename `db` to `mongoose`. We will be calling Mongoose methods on this variable - this makes more sense semantically!  
+  2. Define a `Candidate` model in the exact same way as in `seed.js`.
+
+Now let's move down to our index route...
+  1. Use
 
 ![Index](/img/index.png)
 
-### Show
+### Feature: Show
 
 ![Index](/img/show.png)
 
