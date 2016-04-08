@@ -21,9 +21,21 @@
 
 ## Mongoose
 
+### Connect to Mongoose
+
+![Connect to Mongoose](/img/connect-to-mongoose.png)
+
+![Add Seed Data to DB 1](/img/add-seed-to-db-1.png)
+
+![Add Seed Data to DB 2](/img/add-seed-to-db-2.png)
+
 ### Index
 
+![Index](/img/index.png)
+
 ### Show
+
+![Index](/img/show.png)
 
 ### Express Forms
 * Review & Deep Dive: Files, Layouts
@@ -31,24 +43,42 @@
 ### Feature: New/Create
 * Discuss steps (i.e., 2 requests)
 
+![Install body-parser](/img/body-parser.png)
+
+
 #### You Do: New
 * Scaffolded: Identify each MVC component via T&T, then implement.
 * Bonuses
+
+![New non-functional 1](/img/new-non-functional-1.png)
+
+![New non-functional 2](/img/new-non-functional-2.png)
 
 #### We Do: Create
 * Cover body-parser
 * Bonuses?
 
+![Create in DB](/img/new-db.png)
+
 ### Feature: Edit/Update
+
 
 #### You-Do: Edit
 * Hint: POST / PUT / PATCH  
 
 > How much of a hint should we give?  
 
+![Edit](/img/update-1.png)
+
+![Update](/img/update-2.png)
+
 ### Feature: Delete
 
 #### You Do: Delete
+
+![Delete 1](/img/delete-1.png)
+
+![Delete 2](/img/delete-2.png)
 
 ### Refactor: Extract to Files
 
