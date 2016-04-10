@@ -27,10 +27,30 @@ git checkout express-mongoose-solution
 
 ## Express Review
 
-### Exercise: Build On What You Know - MVC Diagram
+Take 10 minutes to review the Express application as it stands. As you're going through it, do the following...
 
-### New Details
-* What is new in Express that is not covered in the MVC overview?
+### 1. MVC Chart
+
+As you're reviewing the app, try to fill in the blanks in the below Rails-to-Express MVC table. Your job here is to find the ME(A)N equivalents of components in a Rails application. Keep in mind, the answers for many of these are portions of files rather than entire files themselves.
+
+|                   | Rails                    | Express |
+|-------------------|--------------------------|---------|
+| Language          | Ruby                     |         |
+| Database          | PostgreSQL               |         |
+| ORM               | Active Record            |         |
+| Database (Config) | database.yml             |         |
+| Route             | routes.rb                |         |
+| Model             | candidate.rb             |         |
+| Controller        | candidates_controller.rb |         |
+| View              | index.html.erb           |         |
+
+### 2. Questions
+
+Write down **up to three questions** on topics you would like further clarification on. We will spend 10 minutes going over this (and the MVC chart) afterwards.
+
+### ME(A)N Glossary
+
+> Insert definitions for `require`, `module.exports`, etc.  
 
 ## Before We Continue!
 
@@ -39,7 +59,6 @@ You are welcome to code along during the "I Do's" and "We Do's" in this lesson p
 You are more than welcome to catch up when we get to the "You Do's," during which the instructors are available to help.
 
 ## Mongoose
-
 
 ### Why are we using Mongoose?
 
