@@ -27,6 +27,8 @@ git checkout express-mongoose-solution
 
 ## Express Review (25 minutes / 0:30)
 
+> 10 minutes exercise. 15 minutes review.
+
 Take 10 minutes to review the Express application as it stands. As you're going through it, do the following...
 
 ### 1. MVC Chart
