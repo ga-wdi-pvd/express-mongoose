@@ -1,4 +1,4 @@
-# Express MVC and the Big Picture
+# Express & Mongoose
 
 ## Learning Objectives
 
@@ -7,7 +7,7 @@
 * Implement CRUD functionality in an Express app using Mongoose.
 * Refactor an express app into multiple files.
 
-## Starter/Solution Code
+## Starter/Solution Code (5 minutes / 0:05)
 
 The start and solution code match [commits](https://github.com/ga-wdi-exercises/whenpresident/commits/master) in the [WhenPresident repo](https://github.com/ga-wdi-exercises/whenpresident/).
 
@@ -25,7 +25,7 @@ git clone git@github.com:ga-wdi-exercises/whenpresident.git
 git checkout express-mongoose-solution
 ```
 
-## Express Review
+## Express Review (25 minutes / 0:30)
 
 Take 10 minutes to review the Express application as it stands. As you're going through it, do the following...
 
@@ -46,7 +46,7 @@ As you're reviewing the app, try to fill in the blanks in the below Rails-to-Exp
 
 ### 2. Questions
 
-Write down **up to three questions** on topics you would like further clarification on. We will spend 10 minutes going over this (and the MVC chart) afterwards.
+Write down **up to three questions** on topics you would like further clarification on. We will spend 15 minutes going over this (and the MVC chart) afterwards.
 
 ### ME(A)N Glossary
 
@@ -64,7 +64,7 @@ You are more than welcome to catch up when we get to the "You Do's," during whic
 
 Like ActiveRecord for Rails, Mongoose is an ORM we can use to represent data from a Mongo database as models in a Javascript back-end.
 
-### Connect to Mongoose
+### Connect to Mongoose (10 minutes / 0:45)
 
 In order for us to use Mongoose to communicate with our database, we need to link it up to our Express application.
 
@@ -92,7 +92,7 @@ In order for us to use Mongoose to communicate with our database, we need to lin
 >  
 > **`mongoose.connect`** - We also need to link Mongoose to our `whenpresident` Mongo database.  
 
-### Seed the Database
+### Seed the Database (10 minutes / 0:55)
 
 Mongoose is now connected to our Express application. Now let's seed some data into our database using Mongoose.
 
@@ -130,7 +130,9 @@ Now, create a new `db/seeds.js` file. In it we will...
 >  
 > **`Candidate.collection.insert(seedData)`** - Create a collection using the JSON contained in our seed file.  
 
-### Feature: Index
+### Break (10 minutes / 1:05)
+
+### We Do: Index (10 minutes / 1:15)
 
 First order of business: give our Express application index functionality (i.e., display all presidents stored in the database).  
 
@@ -158,7 +160,9 @@ Now let's move down to our index route...
 >  
 > **`candidates: candidates`** - A little confusing, but the `candidates` we will be referencing in our view are now set to the `candidates` that are returned by Mongoose.  
 
-### Feature: Show
+### You Do: Show (15 minutes / 1:30)
+
+> 10 minutes exercise. 5 minutes review.
 
 So we can show all candidates. You know what's cooler than all candidates? **ONE** candidate.  
 
@@ -176,7 +180,7 @@ Let's make changes to our existing show route...
 
 ### Express Forms
 
-### Feature: New/Create
+### Forms & `body-parser` (10 minutes / 1:40)
 
 In NodeJS, in order to process user input received through a form we will need to install and implement the `body-parser` middleware.  
 
@@ -188,7 +192,9 @@ Install it via the command line -- `npm install --save body-parser` -- then make
 >  
 > **`app.use(parser.urlencoded({extended: true}))`** - ???  
 
-### Feature: New (You Do)
+### You Do: New (10 minutes / 1:50)
+
+> 5 minutes exercise. 5 minutes review.
 
 Let's create a new candidate form. We'll add it to our existing index view...
 
@@ -219,7 +225,7 @@ Before we actually create a new candidate in the database, let's make sure we ca
 
 > **`res.json(req.body)`** - The server will respond with JSON that contains the user input, which is stored in `req.body`. This should look just like the output of Rails APIs you have created in this course.   
 
-### Feature: Create (We Do)
+### We Do: Create (10 minutes / 2:00)
 
 Let's modify this post route so that it creates a candidate in our database.
 
@@ -238,7 +244,9 @@ Let's modify this post route so that it creates a candidate in our database.
 >  
 > **`res.redirect()`** - Redirect the user to the new candidate's show view. In the callback, `candidate` represents the new candidate in our database.  
 
-### Feature: Edit/Update (You Do)
+### Break (5 minutes / 2:05)
+
+### You Do: Edit/Update (15 minutes / 2:20)
 
 Onto editing and updating candidates. We'll set up a form in our show view to allow users to submit updated candidate information.
 
@@ -268,7 +276,9 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 > **`.findOneAndUpdate()`** - This method takes three arguments: (1) the new params, (2) the candidate to be updated, (3) `new: true`, which causes the modified candidate to be returned in the callback and (4) the callback.  
 
-### Feature: Delete (You Do)
+### You Do: Delete (10 minutes)
+
+> We may not get to this during the lesson, but you should be able to implement this yourselves with the instructions below.
 
 We're almost there! Last bit of CRUD functionality we need to implement is `DELETE`. Let's start by adding a delete button to our show view...
 
@@ -292,15 +302,9 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 
 ![Delete 2](/img/delete-2.png)
 
-### Refactor: Extract to Files
-
-> Should this be a You Do? An I Do or We Do if there is time at end of lesson? Do we expect to get to this point in the lesson?  
-
 ## Homework
 
 ## To Do
-* CFU's
-  - Node terms: `require`, `module.exports`, etc. throughout lesson
 * Express Forms: do they need their own section?
 * More on body-parser...
 * Request-response cycle prompts for features.
