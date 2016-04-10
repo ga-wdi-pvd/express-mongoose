@@ -107,6 +107,7 @@ Let's make changes to our existing show route...
 
 ### Feature: New/Create
 * Discuss steps (i.e., 2 requests)
+* Cover body-parser
 
 In NodeJS, in order to process user input received through a form we will need to install and implement the `body-parser` middleware.  
 
@@ -125,26 +126,48 @@ Install it via the command line -- `npm install --save body-parser` -- then make
 * Bonuses
 
 Let's create a new candidate form. We'll add it to our existing index view...
+  1.  Using the `action` attribute, the form should direct to `/candidates`.
 
 ![New non-functional 1](/img/new-non-functional-1.png)
 
+Before we actually create a new candidate in the database, let's make sure we can access the user input submitted through the form. In `index.js`...  
+  1. Create an express `POST` route that corresponds with `/candidates`.
+  2. The route's only content should be a `res.json()` statement that returns the user input. (Hint: this is stored somewhere in `req`)
+
 ![New non-functional 2](/img/new-non-functional-2.png)
 
+> **`res.json(req.body)`** - The server will respond with JSON that contains the user input, which is stored in `req.body`. This should look just like the output of Rails APIs you have created in this course.   
+
 ### Feature: Create (We Do)
-* Cover body-parser
 * Bonuses?
+
+Let's modify this post route so that it creates a candidate in our database. In `index.js`...
+  1. Use a Mongoose method to create a new candidate. Pass in an argument that contains **only** the candidate's name. (Hint: Again, this is stored somewhere in `req`). `.then`...  
+  2. Redirect the user to the show view for the newly-created candidate.
 
 ![Create in DB](/img/new-db.png)
 
+> **`Candidate.create(req.body.candidate)`** - Pass in the name stored in `req.body` as an argument to `.create`.  
+>  
+> **`res.redirect()`** - Redirect the user to the new candidate's show view. In the callback, `candidate` represents the new candidate in our database.  
+
 ### Feature: Edit/Update (You Do)
 
-* Hint: POST / PUT / PATCH  
-
-> How much of a hint should we give?  
+Onto editing and updating candidates. We'll set up a form in our show view to allow users to submit updated candidate information. In `views/candidates-show.hbs`...
+  1. The form's `action` attribute should direct to our application's show URL.
 
 ![Edit](/img/update-1.png)
 
+> **`method="post"`** - Wait, why is this a `POST` method? Aren't we supposed to send a `PUT` or `PATCH` request?  
+
+Now in `index.js`...
+  1. Create a `.post` route in `index.js` that corresponds to our new form.
+  2. In it, use a Mongoose method to find and update the candidate in question. (Hint: Refer to the Mongoose [lesson plan](https://github.com/ga-wdi-lessons/mongoose-intro#update-5-min) or [documentation](http://mongoosejs.com/docs/api.html#query_Query-findOneAndUpdate) for help)
+  3. `.then`, redirect the user to the updated candidate's show page.
+
 ![Update](/img/update-2.png)
+
+> **`.findOneAndUpdate()`** - This method takes three arguments: (1) the new params, (2) the candidate to be updated, (3) `new: true`, which causes the modified candidate to be returned in the callback and (4) the callback.  
 
 ### Feature: Delete (You Do)
 
