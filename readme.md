@@ -31,10 +31,12 @@ In order for us to use Mongoose to communicate with our database, we need to lin
 1. Install Mongoose via the command line: `npm install --save mongoose`.
 2. In `connection.js`, require "mongoose" and save it to a `mongoose` variable.
 3. Define a `CandidateSchema` using mongoose's `.Schema()` method.
-  * **Q:** Does `.Schema()` modify our database?
 4. Define a "Candidate" model built off `CandidateSchema` with `mongoose.model()`.
-  * **Q:** Does `.model()` modify our database?
 5. Connect to our `whenpresident` database using `mongoose.connect()`.
+
+#### Questions
+
+* Does `.Schema()` modify our database? What about `.model()`?
 
 ![Connect to Mongoose](/img/connect-to-mongoose.png)
 
