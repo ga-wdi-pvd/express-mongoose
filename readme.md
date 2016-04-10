@@ -33,6 +33,12 @@ git checkout express-mongoose-solution
 ### New Details
 * What is new in Express that is not covered in the MVC overview?
 
+## Before We Continue!
+
+You are welcome to code along during the "I Do's" and "We Do's" in this lesson plan. We do ask, however, that **if you fall behind, do not attempt to catch up during those sections**. Instead, tilt down your screen and watch / take notes.
+
+You are more than welcome to catch up when we get to the "You Do's," during which the instructors are available to help.
+
 ## Mongoose
 
 
