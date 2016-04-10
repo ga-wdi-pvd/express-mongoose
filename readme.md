@@ -28,11 +28,8 @@ In order for us to use Mongoose to communicate with our database, we need to lin
 
 In order to do that, we will make the following changes to `connection.js`...
   1. Require "mongoose" and save it to a `mongoose` variable.
-
   2. Define a `CandidateSchema` using mongoose's `.Schema()` method.
-
   3. Define a "Candidate" model built off `CandidateSchema` with `mongoose.model()`.
-
   4. Connect to our `whenpresident` database using `mongoose.connect()`.
 
 ![Connect to Mongoose](/img/connect-to-mongoose.png)
@@ -51,18 +48,15 @@ Mongoose is now connected to our Express application. Now let's seed some data i
 
 In `connection.js` we need to...
   1. Remove any references to seed data from `connection.js`.
-
   2. Set `module.exports = mongoose`.
 
 Now, create a new `db/seeds.js` file. In it we will...
   1. Require `connection.js` and `seeds.json`, saving them to their own `mongoose` and `seedData` variables respectively.  
-
   2. Define a `Candidate` variable that will contain our Mongoose model definition.
-
   3. Write Mongoose that...
-  - Clears the database of all data, and `.then`...
-  - Inserts our seed data into the database, and `.then`...
-  - Calls `process.exit()`.
+    - Clears the database of all data, and `.then`...
+    - Inserts our seed data into the database, and `.then`...
+    - Calls `process.exit()`.
 
 ![Add Seed Data to DB 1](/img/add-seed-to-db-1.png)
 
@@ -84,12 +78,10 @@ First order of business: give our Express application index functionality (i.e.,
 
 In `index.js`, let's make some changes to our variable definitions...
   1. Rename `db` to `mongoose`. We will be calling Mongoose methods on this variable - this makes more sense semantically!  
-
   2. Define a `Candidate` model in the exact same way as in `seed.js`.
 
 Now let's move down to our index route...
   1. Use Mongoose to retrieve all Candidates from our database, and `.then`...
-
   2. Render our existing index view, making sure to set `candidates` (the variable we will be accessign in the view) to the response of our Mongoose method.
 
 ![Index](/img/index.png)
@@ -106,7 +98,6 @@ So we can show all candidates. You know what's cooler than all candidates? **ONE
 
 Let's make changes to our existing show route...
   1. Use a Mongoose method to retrieve the candidates whose name is located in the browser URL. (Hint: use `req.params`). `.then`...
-
   2. Render the existing show view, making sure to pass in the retrieved candidate as the value to the `candidate` key.
 
 ![Index](/img/show.png)
@@ -126,7 +117,7 @@ Install it via the command line -- `npm install --save body-parser` -- then make
 > **`var parser = require("body-parser")`** - Require `body-parser` so we can reference it later.  
 >  
 > **`app.use(parser.urlencoded({extended: true}))`** - ???  
-  
+
 > Why?  
 
 ### Feature: New (You Do)
