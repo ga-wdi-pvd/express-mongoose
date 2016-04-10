@@ -6,7 +6,6 @@
 * Connect an Express app to a MongoDB database.
 * Implement CRUD functionality in an Express app using Mongoose.
 * Refactor an express app into multiple files.
-* Deploy a "MEN" app.
 
 ## Starter/Solution Code
 
