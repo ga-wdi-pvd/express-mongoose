@@ -15,25 +15,24 @@
 ### New Details
 * What is new in Express that is not covered in the MVC overview?
 
-### Exercise: 99 Bottles with Views (Optional)
-
-> Is there time for this exercise? Does it make sense to include?  
-
 ## Mongoose
 
 
-#### Why are we using Mongoose?
+### Why are we using Mongoose?
 
 Like ActiveRecord for Rails, Mongoose is an ORM we can use to represent data from a Mongo database as models in a Javascript back-end.
 
-#### Connect to Mongoose
+### Connect to Mongoose
 
 In order for us to use Mongoose to communicate with our database, we need to link it up to our Express application.
 
 In order to do that, we will make the following changes to `connection.js`...
   1. Require "mongoose" and save it to a `mongoose` variable.
+
   2. Define a `CandidateSchema` using mongoose's `.Schema()` method.
+
   3. Define a "Candidate" model built off `CandidateSchema` with `mongoose.model()`.
+
   4. Connect to our `whenpresident` database using `mongoose.connect()`.
 
 ![Connect to Mongoose](/img/connect-to-mongoose.png)
@@ -42,22 +41,25 @@ In order to do that, we will make the following changes to `connection.js`...
 >  
 > **`mongoose.Schema( )`** - We use Mongoose's schema method to define a blueprint for our Candidate model (i.e., what attributes it will have and what data types they will be).  
 >  
-> **`mongoose.model( )`** - We attach our schema to our model by passing in two arguments to this method: (1) the desired name of our model ("Candidate") and (2) the pre-defined schema.  
+> **`mongoose.model( )`** - We attach our schema to our model by passing in two arguments to this method: (1) the desired name of our model ("Candidate") and (2) the existing schema.  
 >  
 > **`mongoose.connect`** - We also need to link Mongoose to our `whenpresident` Mongo database.  
 
-#### Seed the Database
+### Seed the Database
 
 Mongoose is now connected to our Express application. Now let's seed some data into our database using Mongoose.
 
 In `connection.js` we need to...
-  1. Remove any references to seed data from `connection.js`.  
+  1. Remove any references to seed data from `connection.js`.
+
   2. Set `module.exports = mongoose`.
 
 Now, create a new `db/seeds.js` file. In it we will...
   1. Require `connection.js` and `seeds.json`, saving them to their own `mongoose` and `seedData` variables respectively.  
+
   2. Define a `Candidate` variable that will contain our Mongoose model definition.
-  3. Write Mongoose code that...
+
+  3. Write Mongoose that...
   - Clears the database of all data, and `.then`...
   - Inserts our seed data into the database, and `.then`...
   - Calls `process.exit()`.
@@ -76,20 +78,36 @@ Now, create a new `db/seeds.js` file. In it we will...
 >  
 > **`Candidate.collection.insert(seedData)`** - Create a collection using the JSON contained in our seed file.  
 
-#### Feature: Index
+### Feature: Index
 
 First order of business: give our Express application index functionality (i.e., display all presidents stored in the database).  
 
 In `index.js`, let's make some changes to our variable definitions...
   1. Rename `db` to `mongoose`. We will be calling Mongoose methods on this variable - this makes more sense semantically!  
+
   2. Define a `Candidate` model in the exact same way as in `seed.js`.
 
 Now let's move down to our index route...
-  1. Use
+  1. Use Mongoose to retrieve all Candidates from our database, and `.then`...
+
+  2. Render our existing index view, making sure to set `candidates` (the variable we will be accessign in the view) to the response of our Mongoose method.
 
 ![Index](/img/index.png)
 
+> **`Candidate.find({})`** - Retrieves all candidates in the database since we are not passing in any parameters to the method.  
+>  
+> **`.then(function(candidates){ ... })`** - `candidates` represents the all the Candidates pulled from the database. We can then reference this inside of `.then`.  
+>  
+> **`candidates: candidates`** - A little confusing, but the `candidates` we will be referencing in our view are now set to the `candidates` that are returned by Mongoose.  
+
 ### Feature: Show
+
+So we can show all candidates. You know what's cooler than all candidates? **ONE** candidate.  
+
+Let's make changes to our existing show route...
+  1. Use a Mongoose method to retrieve the candidates whose name is located in the browser URL. (Hint: use `req.params`). `.then`...
+
+  2. Render the existing show view, making sure to pass in the retrieved candidate as the value to the `candidate` key.
 
 ![Index](/img/show.png)
 
@@ -99,27 +117,36 @@ Now let's move down to our index route...
 ### Feature: New/Create
 * Discuss steps (i.e., 2 requests)
 
+In NodeJS, in order to process user input received through a form we will need to install and implement the `body-parser` middleware.  
+
+Install it via the command line -- `npm install --save body-parser` -- then make the following changes to your `index.js` file...  
+
 ![Install body-parser](/img/body-parser.png)
 
+> **`var parser = require("body-parser")`** - Require `body-parser` so we can reference it later.  
+>  
+> **`app.use(parser.urlencoded({extended: true}))`** - ???  
+  
+> Why?  
 
-#### You Do: New
+### Feature: New (You Do)
 * Scaffolded: Identify each MVC component via T&T, then implement.
 * Bonuses
+
+Let's create a new candidate form. We'll add it to our existing index view...
 
 ![New non-functional 1](/img/new-non-functional-1.png)
 
 ![New non-functional 2](/img/new-non-functional-2.png)
 
-#### We Do: Create
+### Feature: Create (We Do)
 * Cover body-parser
 * Bonuses?
 
 ![Create in DB](/img/new-db.png)
 
-### Feature: Edit/Update
+### Feature: Edit/Update (You Do)
 
-
-#### You-Do: Edit
 * Hint: POST / PUT / PATCH  
 
 > How much of a hint should we give?  
@@ -128,9 +155,7 @@ Now let's move down to our index route...
 
 ![Update](/img/update-2.png)
 
-### Feature: Delete
-
-#### You Do: Delete
+### Feature: Delete (You Do)
 
 ![Delete 1](/img/delete-1.png)
 
