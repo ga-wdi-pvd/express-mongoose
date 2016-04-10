@@ -192,28 +192,4 @@ In `index.js`...
 
 * What needs to be added to Mongoose's update method so that it returns an updated candidate?
 
-
---------------  
-
-## Skills
-
-### MVC in Express
-* Introduce
-* Build
-* Polish
-
-### Express & Mongoose
-* Retrieve
-* Create
-* Update
-
-### Mongoose Associations / Relationships
-
-### Routes
-
-### Extracting to files: require/exports (who?)
-
-### Views
-* Review: config, file location, layout
-* New: form to controller (params/bodyParser), post vs. put/patch requests
-* Optional: partials, json requests (bodyParser)
+## Homework
