@@ -26,11 +26,19 @@ Like ActiveRecord for Rails, Mongoose is an ORM we can use to represent data fro
 
 In order for us to use Mongoose to communicate with our database, we need to link it up to our Express application.
 
-In order to do that, we will make the following changes to `connection.js`...
-  1. Require "mongoose" and save it to a `mongoose` variable.
-  2. Define a `CandidateSchema` using mongoose's `.Schema()` method.
-  3. Define a "Candidate" model built off `CandidateSchema` with `mongoose.model()`.
-  4. Connect to our `whenpresident` database using `mongoose.connect()`.
+#### Steps
+
+1. Install Mongoose via the command line: `npm install --save mongoose`.
+
+2. In `connection.js`, require "mongoose" and save it to a `mongoose` variable.
+
+3. Define a `CandidateSchema` using mongoose's `.Schema()` method.
+  * **Q:** Does `.Schema()` modify our database?
+
+4. Define a "Candidate" model built off `CandidateSchema` with `mongoose.model()`.
+  * **Q:** Does `.model()` modify our database?
+
+5. Connect to our `whenpresident` database using `mongoose.connect()`.
 
 ![Connect to Mongoose](/img/connect-to-mongoose.png)
 
