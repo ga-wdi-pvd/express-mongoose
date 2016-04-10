@@ -103,11 +103,8 @@ Let's make changes to our existing show route...
 ![Index](/img/show.png)
 
 ### Express Forms
-* Review & Deep Dive: Files, Layouts
 
 ### Feature: New/Create
-* Discuss steps (i.e., 2 requests)
-* Cover body-parser
 
 In NodeJS, in order to process user input received through a form we will need to install and implement the `body-parser` middleware.  
 
@@ -122,8 +119,6 @@ Install it via the command line -- `npm install --save body-parser` -- then make
 > Why?  
 
 ### Feature: New (You Do)
-* Scaffolded: Identify each MVC component via T&T, then implement.
-* Bonuses
 
 Let's create a new candidate form. We'll add it to our existing index view...
   1.  Using the `action` attribute, the form should direct to `/candidates`.
@@ -139,7 +134,6 @@ Before we actually create a new candidate in the database, let's make sure we ca
 > **`res.json(req.body)`** - The server will respond with JSON that contains the user input, which is stored in `req.body`. This should look just like the output of Rails APIs you have created in this course.   
 
 ### Feature: Create (We Do)
-* Bonuses?
 
 Let's modify this post route so that it creates a candidate in our database. In `index.js`...
   1. Use a Mongoose method to create a new candidate. Pass in an argument that contains **only** the candidate's name. (Hint: Again, this is stored somewhere in `req`). `.then`...  
@@ -193,3 +187,12 @@ In `index.js`...
 * What needs to be added to Mongoose's update method so that it returns an updated candidate?
 
 ## Homework
+
+## To Do
+* CFU's
+  - Node terms: `require`, `module.exports`, etc. throughout lesson
+* Express Forms: do they need their own section?
+* More on body-parser...
+* Request-response cycle prompts for features.
+  - T&T?
+* Bonuses
