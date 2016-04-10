@@ -141,13 +141,19 @@ Install it via the command line -- `npm install --save body-parser` -- then make
 ### Feature: New (You Do)
 
 Let's create a new candidate form. We'll add it to our existing index view...
-  1.  Using the `action` attribute, the form should direct to `/candidates`.
+
+#### Steps
+
+1.  Using the `action` attribute, the form should direct to `/candidates`.
 
 ![New non-functional 1](/img/new-non-functional-1.png)
 
-Before we actually create a new candidate in the database, let's make sure we can access the user input submitted through the form. In `index.js`...  
-  1. Create an express `POST` route that corresponds with `/candidates`.
-  2. The route's only content should be a `res.json()` statement that returns the user input. (Hint: this is stored somewhere in `req`).
+Before we actually create a new candidate in the database, let's make sure we can access the user input submitted through the form.
+
+#### Steps
+
+1. In `index.js`, create an express `POST` route that corresponds with `/candidates`.
+2. The route's only content should be a `res.json()` statement that returns the user input. (Hint: this is stored somewhere in `req`).
 
 #### Questions
 
