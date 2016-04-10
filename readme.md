@@ -180,8 +180,6 @@ Let's make changes to our existing show route...
 
 ![Index](/img/show.png)
 
-### Express Forms
-
 ### Forms & `body-parser` (10 minutes / 1:40)
 
 In NodeJS, in order to process user input received through a form we will need to install and implement the `body-parser` middleware.  
