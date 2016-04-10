@@ -132,7 +132,7 @@ Let's create a new candidate form. We'll add it to our existing index view...
 
 Before we actually create a new candidate in the database, let's make sure we can access the user input submitted through the form. In `index.js`...  
   1. Create an express `POST` route that corresponds with `/candidates`.
-  2. The route's only content should be a `res.json()` statement that returns the user input. (Hint: this is stored somewhere in `req`)
+  2. The route's only content should be a `res.json()` statement that returns the user input. (Hint: this is stored somewhere in `req`).
 
 ![New non-functional 2](/img/new-non-functional-2.png)
 
@@ -162,7 +162,7 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 Now in `index.js`...
   1. Create a `.post` route in `index.js` that corresponds to our new form.
-  2. In it, use a Mongoose method to find and update the candidate in question. (Hint: Refer to the Mongoose [lesson plan](https://github.com/ga-wdi-lessons/mongoose-intro#update-5-min) or [documentation](http://mongoosejs.com/docs/api.html#query_Query-findOneAndUpdate) for help)
+  2. In it, use a Mongoose method to find and update the candidate in question. (Hint: Refer to the Mongoose [lesson plan](https://github.com/ga-wdi-lessons/mongoose-intro#update-5-min) or [documentation](http://mongoosejs.com/docs/api.html#query_Query-findOneAndUpdate)).
   3. `.then`, redirect the user to the updated candidate's show page.
 
 ![Update](/img/update-2.png)
@@ -171,13 +171,26 @@ Now in `index.js`...
 
 ### Feature: Delete (You Do)
 
+We're almost there! Last bit of CRUD functionality we need to implement is `DELETE`. Let's start by adding a delete button to our show view...
+  1. Using the `action` attribute, the form should direct to `/candidates/:name/delete`.
+
 ![Delete 1](/img/delete-1.png)
+
+> Again, **`method="post"`**. What's up with that?  
+
+In `index.js`...
+  1. Create a route that corresponds to our delete button.
+  2. In it, use Mongoose to find and delete the candidate in question. (Hint: Refer to the Mongoose [lesson plan](https://github.com/ga-wdi-lessons/mongoose-intro#delete-5-min) or [documentation](http://mongoosejs.com/docs/api.html#query_Query-findOneAndRemove)).
 
 ![Delete 2](/img/delete-2.png)
 
 ### Refactor: Extract to Files
 
 > Should this be a You Do? An I Do or We Do if there is time at end of lesson? Do we expect to get to this point in the lesson?  
+
+## Potential Quiz Questions
+
+* What needs to be added to Mongoose's update method so that it returns an updated candidate?
 
 
 --------------  
