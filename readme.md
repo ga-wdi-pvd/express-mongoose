@@ -50,7 +50,7 @@ Write down **up to three questions** on topics you would like further clarificat
 
 ### ME(A)N Glossary
 
-> Insert definitions for `require`, `module.exports`, etc.  
+> Insert definitions for `require`, `module.exports`, `middleware`, `next`, `env`, `seed`, `process.exit`, `app.use`, `req/res`.
 
 ## Before We Continue!
 
@@ -78,7 +78,9 @@ In order for us to use Mongoose to communicate with our database, we need to lin
 
 #### Questions
 
+* What argument do we pass into `mongoose.connect()`?
 * Does `.Schema()` modify our database? What about `.model()`?
+* What does `module.exports` do?
 
 ![Connect to Mongoose](/img/connect-to-mongoose.png)
 
@@ -107,6 +109,12 @@ Now, create a new `db/seeds.js` file. In it we will...
     - Clears the database of all data, and `.then`...
     - Inserts our seed data into the database, and `.then`...
     - Calls `process.exit()`.
+
+#### Questions
+
+* Why are we able to write out `mongoose.model("Candidate")` in `seed.js`?
+* What does it mean to pass `{}` as an argument into `.remove()`?
+* What does `process.exit()` do?
 
 ![Add Seed Data to DB 1](/img/add-seed-to-db-1.png)
 
@@ -138,6 +146,8 @@ Now let's move down to our index route...
 
 #### Questions
 
+* What does `res.render` mean? What do we need to pass into it as arguments?
+* What does it mean to pass `{}` as an argument into `.find()`?
 * Why does our `res.render` statement need to be wrapped in a callback?
 
 ![Index](/img/index.png)
@@ -178,8 +188,6 @@ Install it via the command line -- `npm install --save body-parser` -- then make
 >  
 > **`app.use(parser.urlencoded({extended: true}))`** - ???  
 
-> Why?  
-
 ### Feature: New (You Do)
 
 Let's create a new candidate form. We'll add it to our existing index view...
@@ -187,6 +195,10 @@ Let's create a new candidate form. We'll add it to our existing index view...
 #### Steps
 
 1.  Using the `action` attribute, the form should direct to `/candidates`.
+
+#### Questions
+
+* Why do we set the `name` attribute to something like `candidate[name]`? How does this impact how we access this information in `index.js`?
 
 ![New non-functional 1](/img/new-non-functional-1.png)
 
@@ -200,6 +212,7 @@ Before we actually create a new candidate in the database, let's make sure we ca
 #### Questions
 
 * How are `<form>` and `req.body` related?
+* What does `res.json` do?
 * Why are we accessing `req.body` instead of `res.body`?
 
 ![New non-functional 2](/img/new-non-functional-2.png)
