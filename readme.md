@@ -7,7 +7,11 @@
 * Implement CRUD functionality in an Express app using Mongoose.
 * Refactor an express app into multiple files.
 
-## Starter/Solution Code (5 minutes / 0:05)
+## Framing (5 minutes / 0:05)
+
+So far in this unit you've learned about a number of tools - Node, Express, MongoDB and Mongoose - that developers can use to build a server-side Javascript application. You have yet, however, to use them all together. We'll be spending the bulk of today's lesson connecting everything and creating an application that can receive HTTP requests, retrieve data/make changes to a database and send information back to the end-user.
+
+### Starter/Solution Code
 
 The start and solution code match [commits](https://github.com/ga-wdi-exercises/whenpresident/commits/master) in the [WhenPresident repo](https://github.com/ga-wdi-exercises/whenpresident/).
 
