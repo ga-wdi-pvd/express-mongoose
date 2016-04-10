@@ -8,6 +8,24 @@
 * Refactor an express app into multiple files.
 * Deploy a "MEN" app.
 
+## Starter/Solution Code
+
+The start and solution code match [commits](https://github.com/ga-wdi-exercises/whenpresident/commits/master) in the [WhenPresident repo](https://github.com/ga-wdi-exercises/whenpresident/).
+
+#### Starter
+
+```bash
+git clone git@github.com:ga-wdi-exercises/whenpresident.git
+git checkout express-mongoose-starter
+```
+
+#### Solution
+
+```bash
+git clone git@github.com:ga-wdi-exercises/whenpresident.git
+git checkout express-mongoose-solution
+```
+
 ## Express Review
 
 ### Exercise: Build On What You Know - MVC Diagram
