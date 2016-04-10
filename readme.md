@@ -33,16 +33,16 @@ Take 10 minutes to review the Express application as it stands. As you're going 
 
 As you're reviewing the app, try to fill in the blanks in the below Rails-to-Express MVC table. Your job here is to find the ME(A)N equivalents of components in a Rails application. Keep in mind, the answers for many of these are portions of files rather than entire files themselves.
 
-|                   | Rails                    | Express |
-|-------------------|--------------------------|---------|
-| Language          | Ruby                     |         |
-| Database          | PostgreSQL               |         |
-| ORM               | Active Record            |         |
-| Database (Config) | database.yml             |         |
-| Route             | routes.rb                |         |
-| Model             | candidate.rb             |         |
-| Controller        | candidates_controller.rb |         |
-| View              | index.html.erb           |         |
+|                       | Rails                      | Express |
+|-----------------------|----------------------------|---------|
+| **Language**          | Ruby                       |         |
+| **Database**          | PostgreSQL                 |         |
+| **ORM**               | Active Record              |         |
+| **Database (Config)** | `database.yml`             |         |
+| **Route**             | `routes.rb`                |         |
+| **Model**             | `candidate.rb`             |         |
+| **Controller**        | `candidates_controller.rb` |         |
+| **View**              | `index.html.erb`           |         |
 
 ### 2. Questions
 
