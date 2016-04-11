@@ -18,15 +18,24 @@ The start and solution code match [commits](https://github.com/ga-wdi-exercises/
 #### Starter
 
 ```bash
-git clone git@github.com:ga-wdi-exercises/whenpresident.git
-git checkout express-mongoose-starter
+$ git clone git@github.com:ga-wdi-exercises/whenpresident.git
+$ git checkout express-mongoose-starter
 ```
 
 #### Solution
 
 ```bash
-git clone git@github.com:ga-wdi-exercises/whenpresident.git
-git checkout express-mongoose-solution
+$ git clone git@github.com:ga-wdi-exercises/whenpresident.git
+$ git checkout express-mongoose-solution
+```
+
+#### And While You're At It...
+
+Install the modules listed in `package.json` and get Mongo running.
+
+```bash
+$ npm install
+$ mongod  # Do this one in a separate tab or window.
 ```
 
 ## Express Review (25 minutes / 0:30)
@@ -108,13 +117,24 @@ In `connection.js` we need to...
   1. Remove any references to seed data from `connection.js`.
   2. Set `module.exports = mongoose`.
 
-Now, create a new `db/seeds.js` file. In it we will...
+Now, create a new `db/seed.js` file. In it we will...
   1. Require `connection.js` and `seeds.json`, saving them to their own `mongoose` and `seedData` variables respectively.  
   2. Define a `Candidate` variable that will contain our Mongoose model definition.
   3. Write Mongoose that...
     - Clears the database of all data, and `.then`...
     - Inserts our seed data into the database, and `.then`...
     - Calls `process.exit()`.
+
+We can test this by...
+  1. Running `$ node db/seed.js` in the Terminal.
+  2. Then run `$ mongo` in the Terminal and enter the following commands via the Mongo CLI interface...
+
+    ```bash
+    > use whencandidate
+    > db.candidates.find()
+    ```
+
+    > You should see data that matches the content of `seeds.json`.
 
 #### Questions
 
