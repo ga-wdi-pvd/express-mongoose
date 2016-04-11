@@ -278,7 +278,7 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 ![Update](/img/update-2.png)
 
-> **`.findOneAndUpdate()`** - This method takes three arguments: (1) the new params, (2) the candidate to be updated, (3) `new: true`, which causes the modified candidate to be returned in the callback and (4) the callback.  
+> **`.findOneAndUpdate()`** - This method takes three arguments: (1) the new params, (2) the candidate to be updated and (3) `new: true`, which causes the modified candidate to be returned in the callback.
 
 ### You Do: Delete (10 minutes)
 
