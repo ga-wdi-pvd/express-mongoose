@@ -13,19 +13,17 @@ So far in this unit you've learned about a number of tools - Node, Express, Mong
 
 ### Starter/Solution Code
 
-The start and solution code match [commits](https://github.com/ga-wdi-exercises/whenpresident/commits/master) in the [WhenPresident repo](https://github.com/ga-wdi-exercises/whenpresident/).
+The starter and solution code are branches in the WhenPresident repo: https://github.com/ga-wdi-exercises/whenpresident/.
 
-#### Starter
+#### Starter (express-mongoose-starter)
 
 ```bash
-$ git clone git@github.com:ga-wdi-exercises/whenpresident.git
 $ git checkout express-mongoose-starter
 ```
 
-#### Solution
+#### Solution (express-mongoose-solution)
 
 ```bash
-$ git clone git@github.com:ga-wdi-exercises/whenpresident.git
 $ git checkout express-mongoose-solution
 ```
 
@@ -55,8 +53,8 @@ As you're reviewing the app, try to fill in the blanks in the below Rails-to-Exp
 | **ORM**               | Active Record              |         |
 | **Database (Config)** | `database.yml`             |         |
 | **Route**             | `routes.rb`                |         |
-| **Model**             | `candidate.rb`             |         |
 | **Controller**        | `candidates_controller.rb` |         |
+| **Model**             | `candidate.rb`             |         |
 | **View**              | `index.html.erb`           |         |
 
 ### 2. Questions
@@ -82,6 +80,11 @@ Like ActiveRecord for Rails, Mongoose is an ORM we can use to represent data fro
 ### Connect to Mongoose (10 minutes / 0:45)
 
 In order for us to use Mongoose to communicate with our database, we need to link it up to our Express application.
+
+Q. We need to connect to and seed our database.  What, at a high-level, is needed for that?
+---
+
+> A. Database connection, Mongoose model (with schema), seed data.
 
 #### Steps
 
@@ -159,7 +162,13 @@ We can test this by...
 
 ### We Do: Index (10 minutes / 1:15)
 
-First order of business: give our Express application index functionality (i.e., display all presidents stored in the database).  
+First order of business: display all candidates stored in the database.
+
+Q. What has to change (route, controller, model, view)?
+---
+
+> A. Just the controller.  We will render the view, after the candidates are returned from the db.
+
 
 #### Steps
 
@@ -189,7 +198,12 @@ Now let's move down to our index route...
 
 > 10 minutes exercise. 5 minutes review.
 
-So we can show all candidates. You know what's cooler than all candidates? **ONE** candidate.  
+So we can show all candidates. You know what's cooler than all candidates? **ONE** candidate.
+
+Q. Again, what has to change?
+---
+
+> A. The show route/controller uses our Mongoose model to find and render the requested record.
 
 #### Steps
 
@@ -213,13 +227,41 @@ Install it via the command line -- `npm install --save body-parser` -- then make
 
 > **`var parser = require("body-parser")`** - Require `body-parser` so we can reference it later.  
 >  
-> **`app.use(parser.urlencoded({extended: true}))`** - ???  
+> **`app.use(parser.urlencoded({extended: true}))`** - configure the parser to support html forms
 
 ### You Do: New (10 minutes / 1:50)
 
 > 5 minutes exercise. 5 minutes review.
 
 Let's create a new candidate form. We'll add it to our existing index view...
+
+Q. What did we use in Rails to create an input form?
+---
+
+> A. `form_for` helper.  
+
+```
+form_for @candidate do |f|
+  f.input :name
+  f.input :year
+  f.submit
+end
+```
+
+Q. What attributes are important for a form tag?  Why?
+---
+
+> A.  action and method.  This defines what route we will submit the form contents to.
+
+Q. What params do we need to access in the route/controller?
+---
+
+> A. `{ candidate: { name: "Al Gore", year: 2000 }`
+
+Q. What must be be in the form tag to create those params?
+---
+
+> A. input tags will contain `name="candidate[year]"`
 
 #### Steps
 
@@ -246,7 +288,14 @@ Before we actually create a new candidate in the database, let's make sure we ca
 
 ![New non-functional 2](/img/new-non-functional-2.png)
 
-> **`res.json(req.body)`** - The server will respond with JSON that contains the user input, which is stored in `req.body`. This should look just like the output of Rails APIs you have created in this course.   
+> **`res.json(req.body)`** - The server will respond with JSON that contains the user input, which is stored in `req.body`. This should look just like the output of Rails APIs you have created in this course.
+
+#### Bonus:
+
+1. Why do we configure body-parser with `{ extended: true}`?
+- Is there a form helper library for Express, similar to Rails?
+- Is there a library, like SimpleForm, that generates forms for Bootstrap or Zurb Foundation?
+
 
 ### We Do: Create (10 minutes / 2:00)
 
@@ -299,6 +348,11 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 > **`.findOneAndUpdate()`** - This method takes three arguments: (1) the new params, (2) the candidate to be updated and (3) `new: true`, which causes the modified candidate to be returned in the callback.
 
+#### Bonus
+
+1. How would we support PUT/PATCH in Express?
+
+
 ### You Do: Delete (10 minutes)
 
 > We may not get to this during the lesson, but you should be able to implement this yourselves with the instructions below.
@@ -327,9 +381,4 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 
 ## Homework
 
-## To Do
-* Express Forms: do they need their own section?
-* More on body-parser...
-* Request-response cycle prompts for features.
-  - T&T?
-* Bonuses
+???
