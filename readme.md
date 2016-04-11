@@ -15,26 +15,46 @@ So far in this unit you've learned about a number of tools - Node, Express, Mong
 
 The starter and solution code are branches in the WhenPresident repo: https://github.com/ga-wdi-exercises/whenpresident/.
 
+If you haven't already, fork and clone the repo and setup the upstream remote.  Your homework will be submitted to the whenpresident repo.
+
+Setup Upstream
+  ```
+  $ git remote add upstream https://github.com/ga-wdi-exercises/whenpresident.git
+  ```
+Get the latest from upstream.
+  ```
+  git fetch upstream
+  ```
+
 #### Starter (express-mongoose-starter)
 
 ```bash
 $ git checkout express-mongoose-starter
 ```
 
-#### Solution (express-mongoose-solution)
-
-```bash
-$ git checkout express-mongoose-solution
+Create your homework branch
+```
+$ git checkout -b MyName-express-mongoose
 ```
 
 #### And While You're At It...
 
 Install the modules listed in `package.json` and get Mongo running.
 
-```bash
-$ npm install
-$ mongod  # Do this one in a separate tab or window.
-```
+Install dependencies
+  ```bash
+  $ npm install
+  ```
+
+Start mongo  CLI in another tab/window
+  ```bash
+  $ mongo
+  ```
+
+If you need to, start the mongo server - in **another** tab/window
+  ```bash
+  $ mongod  # Do this one in a separate tab or window.
+  ```
 
 ## Express Review (25 minutes / 0:30)
 
@@ -375,6 +395,19 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 
 ![Delete 2](/img/delete-2.png)
 
+## Conclusion
+
+1. What does `module.exports` do?
+- Why does `method="post"` even though we are updating (vs. creating) something?
+- Why do we use promises and callbacks when calling methods on a Mongoose model?
+
+
 ## Homework
 
-???
+Visit the [WhenPresident repo](https://github.com/ga-wdi-exercises/whenpresident) for instructions.
+
+If you get stuck, feel free to review the solution branch (express-mongoose-solution):
+
+```bash
+$ git checkout express-mongoose-solution
+```
