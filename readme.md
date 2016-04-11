@@ -403,7 +403,7 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 
 ## Homework
 
-Visit the [WhenPresident repo](https://github.com/ga-wdi-exercises/whenpresident) for instructions.
+Visit the [WhenPresident repo wiki](https://github.com/ga-wdi-exercises/whenpresident/wiki/Homework) for instructions.
 
 If you get stuck, feel free to review the solution branch (express-mongoose-solution):
 
