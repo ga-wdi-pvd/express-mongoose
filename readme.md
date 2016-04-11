@@ -5,7 +5,6 @@
 * Identify how an Express app fits within the MVC framework.
 * Connect an Express app to a MongoDB database.
 * Implement CRUD functionality in an Express app using Mongoose.
-* Refactor an express app into multiple files.
 
 ## Framing (5 minutes / 0:05)
 
@@ -18,12 +17,12 @@ The starter and solution code are branches in the WhenPresident repo: https://gi
 If you haven't already, fork and clone the repo and setup the upstream remote.  Your homework will be submitted to the whenpresident repo.
 
 Setup Upstream
-  ```
+  ```bash
   $ git remote add upstream https://github.com/ga-wdi-exercises/whenpresident.git
   ```
 Get the latest from upstream.
-  ```
-  git fetch upstream
+  ```bash
+  $ git fetch upstream
   ```
 
 #### Starter (express-mongoose-starter)
@@ -33,7 +32,7 @@ $ git checkout express-mongoose-starter
 ```
 
 Create your homework branch
-```
+```bash
 $ git checkout -b MyName-express-mongoose
 ```
 
@@ -147,7 +146,7 @@ Now, create a new `db/seed.js` file. In it we will...
 We can test this by...
   1. Running `$ node db/seed.js` in the Terminal.
   2. Then run `$ mongo` in the Terminal and enter the following commands via the Mongo CLI interface...
-    ```bash
+    ```mongo
     > use whencandidate
     > db.candidates.find()
     ```
@@ -256,7 +255,7 @@ Q. What did we use in Rails to create an input form?
 
 > A. `form_for` helper.  
 
-```
+```erb
 form_for @candidate do |f|
   f.input :name
   f.input :year
