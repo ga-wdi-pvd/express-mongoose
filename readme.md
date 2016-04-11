@@ -61,10 +61,6 @@ As you're reviewing the app, try to fill in the blanks in the below Rails-to-Exp
 
 Write down **up to three questions** on topics you would like further clarification on. We will spend 15 minutes going over this (and the MVC chart) afterwards.
 
-### ME(A)N Glossary
-
-> Insert definitions for `require`, `module.exports`, `middleware`, `next`, `env`, `seed`, `process.exit`, `app.use`, `req/res`.
-
 ## Before We Continue!
 
 You are welcome to code along during the "I Do's" and "We Do's" in this lesson plan. We do ask, however, that **if you fall behind, do not attempt to catch up during those sections**. Instead, tilt down your screen and watch / take notes.
