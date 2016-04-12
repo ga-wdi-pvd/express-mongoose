@@ -114,8 +114,10 @@ Q. We need to connect to and seed our database.  What, at a high-level, is neede
 * What argument do we pass into `mongoose.connect()`?
 * Does `.Schema()` modify our database? What about `.model()`?
 * What does `module.exports` do?
-
 ![Connect to Mongoose](/img/connect-to-mongoose.png)
+
+![Connect to Mongoose](/img/Connected_to_Mongoose.jpg)
+
 
 > **`var mongoose = require("mongoose")`** - In order to reference Mongoose, we need to require its corresponding node module and save it in a variable we can reference later.  
 >  
@@ -161,9 +163,13 @@ We can test this by...
 
 ![Add Seed Data to DB 1](/img/add-seed-to-db-1.png)
 
+![Add Seed Data to DB 1](/img/Added_seed_data_1.jpg)
+
 > Notice that `connection.js` no longer contains any reference to seed data. It now only serves as a connection between our application and database.  
 
 ![Add Seed Data to DB 2](/img/add-seed-to-db-2.png)
+
+![Add Seed Data to DB 2](/img/Added_seed_data_2.jpg)
 
 > **`var mongoose = require("./connection")`** - Note that this time `var mongoose` is not set to `require("mongoose")`. Instead, it represents a connection to our database.  
 >  
@@ -203,6 +209,8 @@ Now let's move down to our index route...
 
 ![Index](/img/index.png)
 
+![Index](/img/Shows_db_candidates_in_candidatesindex.jpg)
+
 > **`Candidate.find({})`** - Retrieves all candidates in the database since we are not passing in any parameters to the method.  
 >  
 > **`.then(function(candidates){ ... })`** - `candidates` represents the all the Candidates pulled from the database. We can then reference this inside of `.then`.  
@@ -232,6 +240,8 @@ Let's make changes to our existing show route...
 
 ![Index](/img/show.png)
 
+![Index](/img/Shows_db_candidate_in_candidatesshow.jpg)
+
 ### Forms & `body-parser` (10 minutes / 1:40)
 
 In NodeJS, in order to process user input received through a form we will need to install and implement the `body-parser` middleware.  
@@ -239,6 +249,8 @@ In NodeJS, in order to process user input received through a form we will need t
 Install it via the command line -- `npm install --save body-parser` -- then make the following changes to your `index.js` file...  
 
 ![Install body-parser](/img/body-parser.png)
+
+![Install body-parser](/img/body_parser_1.jpg)
 
 > **`var parser = require("body-parser")`** - Require `body-parser` so we can reference it later.  
 >  
@@ -288,6 +300,8 @@ Q. What must be be in the form tag to create those params?
 
 ![New non-functional 1](/img/new-non-functional-1.png)
 
+![New non-functional 1](/img/Added_nonfunctional_post_route_1.jpg)
+
 Before we actually create a new candidate in the database, let's make sure we can access the user input submitted through the form.
 
 #### Steps
@@ -302,6 +316,8 @@ Before we actually create a new candidate in the database, let's make sure we ca
 * Why are we accessing `req.body` instead of `res.body`?
 
 ![New non-functional 2](/img/new-non-functional-2.png)
+
+![New non-functional 2](/img/Added_nonfunctional_post_route_2.jpg)
 
 > **`res.json(req.body)`** - The server will respond with JSON that contains the user input, which is stored in `req.body`. This should look just like the output of Rails APIs you have created in this course.
 
@@ -327,6 +343,8 @@ Let's modify this post route so that it creates a candidate in our database.
 
 ![Create in DB](/img/new-db.png)
 
+![Create in DB](/img/Saves_new_candidate_to_database.jpg)
+
 > **`Candidate.create(req.body.candidate)`** - Pass in the name stored in `req.body` as an argument to `.create`.  
 >  
 > **`res.redirect()`** - Redirect the user to the new candidate's show view. In the callback, `candidate` represents the new candidate in our database.  
@@ -347,6 +365,8 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 ![Edit](/img/update-1.png)
 
+![Edit](/img/Updates_a_candidate_in_the_database.jpg)
+
 > **`method="post"`** - Wait, why is this a `POST` method? Aren't we supposed to send a `PUT` or `PATCH` request?  
 
 #### Steps
@@ -358,6 +378,8 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 #### Questions
 
 * How come `.findOneAndUpdate` has 3 arguments while `.create` has only 2?
+
+![Update](/img/update-2.png)
 
 ![Update](/img/update-2.png)
 
@@ -385,6 +407,8 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 
 ![Delete 1](/img/delete-1.png)
 
+![Delete 1](/img/Deletes_candidate_from_database_1.jpg)
+
 > Again, **`method="post"`**. What's up with that?  
 
 #### Steps
@@ -393,6 +417,9 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 2. In it, use Mongoose to find and delete the candidate in question. (Hint: Refer to the Mongoose [lesson plan](https://github.com/ga-wdi-lessons/mongoose-intro#delete-5-min) or [documentation](http://mongoosejs.com/docs/api.html#query_Query-findOneAndRemove)).
 
 ![Delete 2](/img/delete-2.png)
+
+![Delete 2](/img/Deletes_candidate_from_database_2.jpg)
+
 
 ## Conclusion
 
