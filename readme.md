@@ -115,7 +115,7 @@ Q. We need to connect to and seed our database.  What, at a high-level, is neede
 * Does `.Schema()` modify our database? What about `.model()`?
 * What does `module.exports` do?
 
-![Connect to Mongoose](/img/connect-to-mongoose.png)
+![Connect to Mongoose](http://i.imgur.com/g1LnWzx.png)
 
 > **`var mongoose = require("mongoose")`** - In order to reference Mongoose, we need to require its corresponding node module and save it in a variable we can reference later.  
 >  
@@ -159,11 +159,11 @@ We can test this by...
 * What does it mean to pass `{}` as an argument into `.remove()`?
 * What does `process.exit()` do?
 
-![Add Seed Data to DB 1](/img/add-seed-to-db-1.png)
+![Add Seed Data to DB 1](http://i.imgur.com/zWHSpRO.png)
 
 > Notice that `connection.js` no longer contains any reference to seed data. It now only serves as a connection between our application and database.  
 
-![Add Seed Data to DB 2](/img/add-seed-to-db-2.png)
+![Add Seed Data to DB 2](http://i.imgur.com/qzFr8AI.png)
 
 > **`var mongoose = require("./connection")`** - Note that this time `var mongoose` is not set to `require("mongoose")`. Instead, it represents a connection to our database.  
 >  
@@ -201,7 +201,7 @@ Now let's move down to our index route...
 * What does it mean to pass `{}` as an argument into `.find()`?
 * Why does our `res.render` statement need to be wrapped in a callback?
 
-![Index](/img/index.png)
+![Index](http://i.imgur.com/QBz4ikv.png)
 
 > **`Candidate.find({})`** - Retrieves all candidates in the database since we are not passing in any parameters to the method.  
 >  
@@ -230,7 +230,7 @@ Let's make changes to our existing show route...
 
 * What's the difference between `.find` and `.findOne`?
 
-![Index](/img/show.png)
+![Show](http://i.imgur.com/OCIL9H5.png)
 
 ### Forms & `body-parser` (10 minutes / 1:40)
 
@@ -238,7 +238,7 @@ In NodeJS, in order to process user input received through a form we will need t
 
 Install it via the command line -- `npm install --save body-parser` -- then make the following changes to your `index.js` file...  
 
-![Install body-parser](/img/body-parser.png)
+![Install body-parser](http://i.imgur.com/ZWSc01J.png)
 
 > **`var parser = require("body-parser")`** - Require `body-parser` so we can reference it later.  
 >  
@@ -286,7 +286,7 @@ Q. What must be be in the form tag to create those params?
 
 * Why do we set the `name` attribute to something like `candidate[name]`? How does this impact how we access this information in `index.js`?
 
-![New non-functional 1](/img/new-non-functional-1.png)
+![New non-functional 1](http://i.imgur.com/JqhY57R.png)
 
 Before we actually create a new candidate in the database, let's make sure we can access the user input submitted through the form.
 
@@ -301,7 +301,7 @@ Before we actually create a new candidate in the database, let's make sure we ca
 * What does `res.json` do?
 * Why are we accessing `req.body` instead of `res.body`?
 
-![New non-functional 2](/img/new-non-functional-2.png)
+![New non-functional 2](http://i.imgur.com/iyxCyZC.png)
 
 > **`res.json(req.body)`** - The server will respond with JSON that contains the user input, which is stored in `req.body`. This should look just like the output of Rails APIs you have created in this course.
 
@@ -325,7 +325,7 @@ Let's modify this post route so that it creates a candidate in our database.
 
 * What is `res.redirect`? How is it different from `res.send`, `res.render` and `res.json`?
 
-![Create in DB](/img/new-db.png)
+![Create in DB](http://i.imgur.com/hqKzbWa.png)
 
 > **`Candidate.create(req.body.candidate)`** - Pass in the name stored in `req.body` as an argument to `.create`.  
 >  
@@ -345,7 +345,7 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 * Why does `method="post"` even though we are updating (vs. creating) something?
 
-![Edit](/img/update-1.png)
+![Edit](http://i.imgur.com/74vYqMa.png)
 
 > **`method="post"`** - Wait, why is this a `POST` method? Aren't we supposed to send a `PUT` or `PATCH` request?  
 
@@ -359,7 +359,7 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 * How come `.findOneAndUpdate` has 3 arguments while `.create` has only 2?
 
-![Update](/img/update-2.png)
+![Update](http://i.imgur.com/rtQGmQi.png)
 
 > **`.findOneAndUpdate()`** - This method takes three arguments: (1) the new params, (2) the candidate to be updated and (3) `new: true`, which causes the modified candidate to be returned in the callback.
 
@@ -383,7 +383,7 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 * Why can't we use `app.delete` for a `DELETE` route?
 * Why shouldn't you use `app.get` for `DELETE` routes?
 
-![Delete 1](/img/delete-1.png)
+![Delete 1](http://i.imgur.com/76mp0U4.png)
 
 > Again, **`method="post"`**. What's up with that?  
 
@@ -392,7 +392,7 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 1. In `index.js`, create a route that corresponds to our delete button.
 2. In it, use Mongoose to find and delete the candidate in question. (Hint: Refer to the Mongoose [lesson plan](https://github.com/ga-wdi-lessons/mongoose-intro#delete-5-min) or [documentation](http://mongoosejs.com/docs/api.html#query_Query-findOneAndRemove)).
 
-![Delete 2](/img/delete-2.png)
+![Delete 2](http://i.imgur.com/1qF64Tf.png)
 
 ## Conclusion
 
@@ -403,10 +403,8 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 
 ## Homework
 
-Visit the [WhenPresident repo wiki](https://github.com/ga-wdi-exercises/whenpresident/wiki/Homework) for instructions.
+## TODOS
 
-If you get stuck, feel free to review the solution branch (express-mongoose-solution):
-
-```bash
-$ git checkout express-mongoose-solution
-```
+* Add deployment info from most recent lesson.
+* Grab updated conclusion from most recent lesson.
+* Update homework so it says that students can now complete the second part of YUM.
