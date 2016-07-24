@@ -554,7 +554,3 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 ## Homework
 
 You should now be able to complete the [second part of the YUM homework](https://github.com/ga-wdi-exercises/yum#part-ii-add-express).
-
-## TODOS
-
-* Indicate that WhenPresident is a new app, but all it is is a single-model "MEN" app.
