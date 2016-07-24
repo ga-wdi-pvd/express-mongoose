@@ -116,6 +116,8 @@ Q. We need to connect to and seed our database.  What, at a high-level, is neede
 
   > The location of the Mongo database.
 
+  <br/>
+
 </details>
 
 <details>
@@ -123,12 +125,16 @@ Q. We need to connect to and seed our database.  What, at a high-level, is neede
 
   > No. It's only once we start querying the database that it changes.
 
+  <br/>
+
 </details>
 
 <details>
   <summary><strong>What does `module.exports` do?</strong></summary>
 
   > It allows us to export code from one file to another. We could export only portions of the code or all of it if we wanted to.
+
+  <br/>
 
 </details>
 
