@@ -181,7 +181,7 @@ We can test this by...
     > db.candidates.find()
     ```
 
-    > You should see data that matches the content of `seeds.json`.
+> If you need help remembering Mongoose queries, [the official documentation is a good place to look](http://mongoosejs.com/docs/guide.html).
 
 ### Questions
 
