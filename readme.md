@@ -111,9 +111,26 @@ Q. We need to connect to and seed our database.  What, at a high-level, is neede
 
 #### Questions
 
-* What argument do we pass into `mongoose.connect()`?
-* Does `.Schema()` modify our database? What about `.model()`?
-* What does `module.exports` do?
+<details>
+  <summary><strong>What argument do we pass into `mongoose.connect()`?</strong></summary>
+
+  > The location of the Mongo database.
+
+</details>
+
+<details>
+  <summary><strong>Does `.Schema()` modify our database? What about `.model()`?</strong></summary>
+
+  > No. It's only once we start querying the database that it changes.
+
+</details>
+
+<details>
+  <summary><strong>What does `module.exports` do?</strong></summary>
+
+  > It allows us to export code from one file to another. We could export only portions of the code or all of it if we wanted to.
+
+</details>
 
 ![Connect to Mongoose](http://i.imgur.com/g1LnWzx.png)
 
@@ -408,3 +425,6 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 * Add deployment info from most recent lesson.
 * Grab updated conclusion from most recent lesson.
 * Update homework so it says that students can now complete the second part of YUM.
+* Notes for students before reviewing WhenPresident
+  - Promises vs. Callbacks
+  - Different ways of making Mongoose queries
