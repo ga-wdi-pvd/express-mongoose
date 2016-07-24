@@ -416,13 +416,6 @@ Before we actually create a new candidate in the database, let's make sure we ca
 
 > **`res.json(req.body)`** - The server will respond with JSON that contains the user input, which is stored in `req.body`. This should look just like the output of Rails APIs you have created in this course.
 
-### Bonus
-
-1. Why do we configure body-parser with `{ extended: true}`?
-- Is there a form helper library for Express, similar to Rails?
-- Is there a library, like SimpleForm, that generates forms for Bootstrap or Zurb Foundation?
-
-
 ## We Do: Create (10 minutes / 2:00)
 
 Let's modify this post route so that it creates a candidate in our database.
