@@ -177,7 +177,7 @@ We can test this by...
   1. Running `$ node db/seed.js` in the Terminal.
   2. Then run `$ mongo` in the Terminal and enter the following commands via the Mongo CLI interface...
     ```mongo
-    > use whencandidate
+    > use whenpresident
     > db.candidates.find()
     ```
 
