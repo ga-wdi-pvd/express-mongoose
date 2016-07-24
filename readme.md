@@ -201,15 +201,6 @@ We can test this by...
 
 </details>
 
-<details>
-  <summary><strong>What does it mean to pass `{}` as an argument into `.remove()`?</strong></summary>
-
-  > Closes the file and prevents it from running any further.
-
-  <br/>
-
-</details>
-
 ![Add Seed Data to DB 1](http://i.imgur.com/zWHSpRO.png)
 
 > Notice that `connection.js` no longer contains any reference to seed data. It now only serves as a connection between our application and database.  
