@@ -12,26 +12,27 @@ So far in this unit you've learned about a number of tools - Node, Express, Mong
 
 ### Starter/Solution Code
 
-The starter and solution code are branches in the WhenPresident repo: https://github.com/ga-wdi-exercises/whenpresident/.
+Today we'll be working on a brand new app called "When President." It's a simple, one-model CRUD app that allows a user to declare who they're voting for as president in a given year.
 
-If you haven't already, fork and clone the repo and setup the upstream remote.  Your homework will be submitted to the whenpresident repo.
+Let's begin by cloning down the repo...
 
-Setup Upstream
-  ```bash
-  $ git remote add upstream https://github.com/ga-wdi-exercises/whenpresident.git
-  ```
-Get the latest from upstream.
-  ```bash
-  $ git fetch upstream
-  ```
+```bash
+$ git clone git@github.com:ga-wdi-exercises/whenpresident.git
+```
+
+> The starter and solution code are branches in the [`WhenPresident` repo](https://github.com/ga-wdi-exercises/whenpresident/).
+
 
 #### Starter (express-mongoose-starter)
+
+Checkout to the proper branch...
 
 ```bash
 $ git checkout express-mongoose-starter
 ```
 
-Create your homework branch
+Then create a new one on which you will do your work...
+
 ```bash
 $ git checkout -b MyName-express-mongoose
 ```
@@ -80,6 +81,12 @@ As you're reviewing the app, try to fill in the blanks in the below Rails-to-Exp
 
 Write down **up to three questions** on topics you would like further clarification on. We will spend 15 minutes going over this (and the MVC chart) afterwards.
 
+### Note
+
+You may notice that we do things a bit differently in this example than we have in previous classes. For example, we use promises instead of callbacks when making Mongoose queries.
+
+This is to demonstrate that there is no single way of creating a Mongoose-Express app. If any of these differences seem confusing, don't hesitate to ask an instructor about them!
+
 ## Before We Continue!
 
 You are welcome to code along during the "I Do's" and "We Do's" in this lesson plan. We do ask, however, that **if you fall behind, do not attempt to catch up during those sections**. Instead, tilt down your screen and watch / take notes.
@@ -94,12 +101,10 @@ Like ActiveRecord for Rails, Mongoose is an ORM we can use to represent data fro
 
 ### Connect to Mongoose (10 minutes / 0:45)
 
-In order for us to use Mongoose to communicate with our database, we need to link it up to our Express application.
-
-Q. We need to connect to and seed our database.  What, at a high-level, is needed for that?
----
-
-> A. Database connection, Mongoose model (with schema), seed data.
+In order for us to use Mongoose to communicate with our database, we need to link it up to our Express application. We'll do this by...
+* Establishing a connection with a Mongo database.
+* Define a Mongoose schema and model.
+* Generate some seed data.
 
 #### Steps
 
@@ -150,7 +155,7 @@ Q. We need to connect to and seed our database.  What, at a high-level, is neede
 
 ### Seed the Database (10 minutes / 0:55)
 
-Mongoose is now connected to our Express application. Now let's seed some data into our database using Mongoose.
+Mongoose is now connected to our Express application. Let's seed some data into our database using Mongoose.
 
 #### Steps
 
@@ -161,7 +166,7 @@ In `connection.js` we need to...
 Now, create a new `db/seed.js` file. In it we will...
   1. Require `connection.js` and `seeds.json`, saving them to their own `mongoose` and `seedData` variables respectively.  
   2. Define a `Candidate` variable that will contain our Mongoose model definition.
-  3. Write Mongoose that...
+  3. Write Mongoose queries that accomplish the following...
     - Clears the database of all data, and `.then`...
     - Inserts our seed data into the database, and `.then`...
     - Calls `process.exit()`.
@@ -223,13 +228,9 @@ We can test this by...
 
 ### We Do: Index (10 minutes / 1:15)
 
-First order of business: display all candidates stored in the database.
-
-Q. What has to change (route, controller, model, view)?
----
-
-> A. Just the controller.  We will render the view, after the candidates are returned from the db.
-
+First order of business: display all candidates stored in the database. We'll do this by adding code to the controller that...
+* Retrieves all of the candidates from the database.
+* Renders a view displaying the retrieved candidates.
 
 #### Steps
 
@@ -282,12 +283,7 @@ Now let's move down to our index route...
 
 > 10 minutes exercise. 5 minutes review.
 
-So we can show all candidates. You know what's cooler than all candidates? **ONE** candidate.
-
-Q. Again, what has to change?
----
-
-> A. The show route/controller uses our Mongoose model to find and render the requested record.
+So we can show all candidates. You know what's cooler than all candidates? **ONE** candidate. Let's go back into the controller and creating a corresponding route / action for that.
 
 #### Steps
 
@@ -557,12 +553,8 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 
 ## Homework
 
+You should now be able to complete the [second part of the YUM homework](https://github.com/ga-wdi-exercises/yum#part-ii-add-express).
+
 ## TODOS
 
-* Add deployment info from most recent lesson.
-* Grab updated conclusion from most recent lesson.
-* Update homework so it says that students can now complete the second part of YUM.
-* Notes for students before reviewing WhenPresident
-  - Promises vs. Callbacks
-  - Different ways of making Mongoose queries
-* Prompt: if you want a challenge, only follow the steps (i.e., don't look at the screenshots).
+* Indicate that WhenPresident is a new app, but all it is is a single-model "MEN" app.
