@@ -178,9 +178,32 @@ We can test this by...
 
 #### Questions
 
-* Why are we able to write out `mongoose.model("Candidate")` in `seed.js`?
-* What does it mean to pass `{}` as an argument into `.remove()`?
-* What does `process.exit()` do?
+<details>
+  <summary><strong>Why are we able to write out `mongoose.model("Candidate")` in `seed.js`?</strong></summary>
+
+  > (CHECK ANSWER) Because we defined that candidate in `connection.js`, which has been required.
+
+  <br/>
+
+</details>
+
+<details>
+  <summary><strong>What does it mean to pass `{}` as an argument into `.remove()`?</strong></summary>
+
+  > To remove everything. An empty object means that we're not going to restrict removal to certain key-value pairs.
+
+  <br/>
+
+</details>
+
+<details>
+  <summary><strong>What does it mean to pass `{}` as an argument into `.remove()`?</strong></summary>
+
+  > Closes the file and prevents it from running any further.
+
+  <br/>
+
+</details>
 
 ![Add Seed Data to DB 1](http://i.imgur.com/zWHSpRO.png)
 
@@ -220,9 +243,32 @@ Now let's move down to our index route...
 
 #### Questions
 
-* What does `res.render` mean? What do we need to pass into it as arguments?
-* What does it mean to pass `{}` as an argument into `.find()`?
-* Why does our `res.render` statement need to be wrapped in a callback?
+<details>
+  <summary><strong>What does `res.render` mean? What do we need to pass into it as arguments?</strong></summary>
+
+  > `res.render` is used to render the server response back to the browser. In this example we pass it (a) the view we want to render and (b) the data that should be available to it (i.e., candidates).
+
+  <br/>
+
+</details>
+
+<details>
+  <summary><strong>What does it mean to pass `{}` as an argument into `.find()`?</strong></summary>
+
+  > Like `.remove`, it means to find everything. The search is not limited to certain key-value pairs.
+
+  <br/>
+
+</details>
+
+<details>
+  <summary><strong>Why does our `res.render` statement need to be wrapped in a callback?</strong></summary>
+
+  > We want to wait until the Mongoose query has been completed before we render anything, especially if the render is dependent on data returned from the database.
+
+  <br/>
+
+</details>
 
 ![Index](http://i.imgur.com/QBz4ikv.png)
 
@@ -251,7 +297,14 @@ Let's make changes to our existing show route...
 
 #### Questions
 
-* What's the difference between `.find` and `.findOne`?
+<details>
+  <summary><strong>What's the difference between `.find` and `.findOne`?</strong></summary>
+
+  > `.find` returns multiple items. `.findOne` only returns one.
+
+  <br/>
+
+</details>
 
 ![Show](http://i.imgur.com/OCIL9H5.png)
 
@@ -273,33 +326,51 @@ Install it via the command line -- `npm install --save body-parser` -- then make
 
 Let's create a new candidate form. We'll add it to our existing index view...
 
-Q. What did we use in Rails to create an input form?
----
+#### Before You Start Coding...
 
-> A. `form_for` helper.  
+<details>
+  <summary><strong>What did we use in Rails to create an input form?</strong></summary>
 
-```erb
-form_for @candidate do |f|
-  f.input :name
-  f.input :year
-  f.submit
-end
-```
+  > `form_for` helper.  
 
-Q. What attributes are important for a form tag?  Why?
----
+  ```erb
+  form_for @candidate do |f|
+    f.input :name
+    f.input :year
+    f.submit
+  end
+  ```
 
-> A.  action and method.  This defines what route we will submit the form contents to.
+  <br/>
 
-Q. What params do we need to access in the route/controller?
----
+</details>
 
-> A. `{ candidate: { name: "Al Gore", year: 2000 }`
+<details>
+  <summary><strong>What attributes are important for a form tag?  Why?</strong></summary>
 
-Q. What must be be in the form tag to create those params?
----
+  > `action` and `method`.  This defines what route we will submit the form contents to.  
 
-> A. input tags will contain `name="candidate[year]"`
+  <br/>
+
+</details>
+
+<details>
+  <summary><strong>What params do we need to access in the route/controller?</strong></summary>
+
+  > `{ candidate: { name: "Al Gore", year: 2000 }`  
+
+  <br/>
+
+</details>
+
+<details>
+  <summary><strong>What must be be in the form tag to create those params?</strong></summary>
+
+  > Input tags will contain `name="candidate[year]"`.
+
+  <br/>
+
+</details>
 
 #### Steps
 
@@ -307,7 +378,14 @@ Q. What must be be in the form tag to create those params?
 
 #### Questions
 
-* Why do we set the `name` attribute to something like `candidate[name]`? How does this impact how we access this information in `index.js`?
+<details>
+  <summary><strong>Why do we set the `name` attribute to something like `candidate[name]`? How does this impact how we access this information in `index.js`?</strong></summary>
+
+  > All candidate information will be available to us inside of a `candidate` object on the back-end.
+
+  <br/>
+
+</details>
 
 ![New non-functional 1](http://i.imgur.com/JqhY57R.png)
 
@@ -320,9 +398,32 @@ Before we actually create a new candidate in the database, let's make sure we ca
 
 #### Questions
 
-* How are `<form>` and `req.body` related?
-* What does `res.json` do?
-* Why are we accessing `req.body` instead of `res.body`?
+<details>
+  <summary><strong>How are `<form>` and `req.body` related?</strong></summary>
+
+  > (CHECK ANSWER) The values a user submits through the form can be found in `req.body` on the back-end.
+
+  <br/>
+
+</details>
+
+<details>
+  <summary><strong>What does `res.json` do?</strong></summary>
+
+  > It's sends a response back to the browser in JSON form. This functions similarly to `format.json` in Rails.
+
+  <br/>
+
+</details>
+
+<details>
+  <summary><strong>Why are we accessing `req.body` instead of `res.body`?</strong></summary>
+
+  > Because we want to render whatever the user sent through the form as JSON.
+
+  <br/>
+
+</details>
 
 ![New non-functional 2](http://i.imgur.com/iyxCyZC.png)
 
@@ -346,7 +447,14 @@ Let's modify this post route so that it creates a candidate in our database.
 
 #### Questions
 
-* What is `res.redirect`? How is it different from `res.send`, `res.render` and `res.json`?
+<details>
+  <summary><strong>What is `res.redirect`? How is it different from `res.send`, `res.render` and `res.json`?</strong></summary>
+
+  > (CHECK ANSWER) `res.redirect` initializes a new request-response cycle and usually is not passed any data from the controller.
+
+  <br/>
+
+</details>
 
 ![Create in DB](http://i.imgur.com/hqKzbWa.png)
 
@@ -366,7 +474,14 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 #### Questions
 
-* Why does `method="post"` even though we are updating (vs. creating) something?
+<details>
+  <summary><strong>Why does `method="post"` even though we are updating (vs. creating) something?</strong></summary>
+
+  > HTML does not support `PUT` or `PATCH`. That being said, we can make a `POST` request and define behavior on the back-end that will actual update something instead of create.
+
+  <br/>
+
+</details>
 
 ![Edit](http://i.imgur.com/74vYqMa.png)
 
@@ -380,16 +495,18 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 #### Questions
 
-* How come `.findOneAndUpdate` has 3 arguments while `.create` has only 2?
+<details>
+  <summary><strong>How come `.findOneAndUpdate` has 3 arguments while `.create` has only 2?</strong></summary>
+
+  > Because we need to identify the thing we are updating **AND** what it's going to be updated with.
+
+  <br/>
+
+</details>
 
 ![Update](http://i.imgur.com/rtQGmQi.png)
 
 > **`.findOneAndUpdate()`** - This method takes three arguments: (1) the new params, (2) the candidate to be updated and (3) `new: true`, which causes the modified candidate to be returned in the callback.
-
-#### Bonus
-
-1. How would we support PUT/PATCH in Express?
-
 
 ### You Do: Delete (10 minutes)
 
@@ -403,8 +520,23 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 
 #### Questions
 
-* Why can't we use `app.delete` for a `DELETE` route?
-* Why shouldn't you use `app.get` for `DELETE` routes?
+<details>
+  <summary><strong>Why can't we use `app.delete` for a `DELETE` route?</strong></summary>
+
+  > Again, because HTML only supports `GET` and `POST`, not `PUT` `PATCH` or `DELETE`.
+
+  <br/>
+
+</details>
+
+<details>
+  <summary><strong>Why shouldn't you use `app.get` for `DELETE` routes?</strong></summary>
+
+  > (NEED ANSWER).)
+
+  <br/>
+
+</details>
 
 ![Delete 1](http://i.imgur.com/76mp0U4.png)
 
@@ -434,3 +566,4 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 * Notes for students before reviewing WhenPresident
   - Promises vs. Callbacks
   - Different ways of making Mongoose queries
+* Prompt: if you want a challenge, only follow the steps (i.e., don't look at the screenshots).
