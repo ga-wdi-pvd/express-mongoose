@@ -99,14 +99,14 @@ You are more than welcome to catch up when we get to the "You Do's," during whic
 
 Like ActiveRecord for Rails, Mongoose is an ORM we can use to represent data from a Mongo database as models in a Javascript back-end.
 
-### Connect to Mongoose (10 minutes / 0:45)
+## Connect to Mongoose (10 minutes / 0:45)
 
 In order for us to use Mongoose to communicate with our database, we need to link it up to our Express application. We'll do this by...
 * Establishing a connection with a Mongo database.
 * Define a Mongoose schema and model.
 * Generate some seed data.
 
-#### Steps
+### Steps
 
 1. Install Mongoose via the command line: `npm install --save mongoose`.
 2. In `connection.js`, require "mongoose" and save it to a `mongoose` variable.
@@ -114,7 +114,7 @@ In order for us to use Mongoose to communicate with our database, we need to lin
 4. Define a "Candidate" model built off `CandidateSchema` with `mongoose.model()`.
 5. Connect to our `whenpresident` database using `mongoose.connect()`.
 
-#### Questions
+### Questions
 
 <details>
   <summary><strong>What argument do we pass into `mongoose.connect()`?</strong></summary>
@@ -153,11 +153,11 @@ In order for us to use Mongoose to communicate with our database, we need to lin
 >  
 > **`mongoose.connect`** - We also need to link Mongoose to our `whenpresident` Mongo database.  
 
-### Seed the Database (10 minutes / 0:55)
+## Seed the Database (10 minutes / 0:55)
 
 Mongoose is now connected to our Express application. Let's seed some data into our database using Mongoose.
 
-#### Steps
+### Steps
 
 In `connection.js` we need to...
   1. Remove any references to seed data from `connection.js`.
@@ -181,7 +181,7 @@ We can test this by...
 
     > You should see data that matches the content of `seeds.json`.
 
-#### Questions
+### Questions
 
 <details>
   <summary><strong>Why are we able to write out `mongoose.model("Candidate")` in `seed.js`?</strong></summary>
@@ -224,15 +224,15 @@ We can test this by...
 >  
 > **`Candidate.collection.insert(seedData)`** - Create a collection using the JSON contained in our seed file.  
 
-### Break (10 minutes / 1:05)
+## Break (10 minutes / 1:05)
 
-### We Do: Index (10 minutes / 1:15)
+## We Do: Index (10 minutes / 1:15)
 
 First order of business: display all candidates stored in the database. We'll do this by adding code to the controller that...
 * Retrieves all of the candidates from the database.
 * Renders a view displaying the retrieved candidates.
 
-#### Steps
+### Steps
 
 In `index.js`, let's make some changes to our variable definitions...
   1. Rename `db` to `mongoose`. We will be calling Mongoose methods on this variable - this makes more sense semantically!  
@@ -242,7 +242,7 @@ Now let's move down to our index route...
   1. Use Mongoose to retrieve all Candidates from our database, and `.then`...
   2. Render our existing index view, making sure to set `candidates` (the variable we will be accessing in the view) to the response of our Mongoose method.
 
-#### Questions
+### Questions
 
 <details>
   <summary><strong>What does `res.render` mean? What do we need to pass into it as arguments?</strong></summary>
@@ -279,19 +279,19 @@ Now let's move down to our index route...
 >  
 > **`candidates: candidates`** - A little confusing, but the `candidates` we will be referencing in our view are now set to the `candidates` that are returned by Mongoose.  
 
-### You Do: Show (15 minutes / 1:30)
+## You Do: Show (15 minutes / 1:30)
 
 > 10 minutes exercise. 5 minutes review.
 
 So we can show all candidates. You know what's cooler than all candidates? **ONE** candidate. Let's go back into the controller and creating a corresponding route / action for that.
 
-#### Steps
+### Steps
 
 Let's make changes to our existing show route...
   1. Use a Mongoose method to retrieve the candidates whose name is located in the browser URL. (Hint: use `req.params`). `.then`...
   2. Render the existing show view, making sure to pass in the retrieved candidate as the value to the `candidate` key.
 
-#### Questions
+### Questions
 
 <details>
   <summary><strong>What's the difference between `.find` and `.findOne`?</strong></summary>
@@ -304,7 +304,7 @@ Let's make changes to our existing show route...
 
 ![Show](http://i.imgur.com/OCIL9H5.png)
 
-### Forms & `body-parser` (10 minutes / 1:40)
+## Forms & `body-parser` (10 minutes / 1:40)
 
 In NodeJS, in order to process user input received through a form we will need to install and implement the `body-parser` middleware.  
 
@@ -316,13 +316,13 @@ Install it via the command line -- `npm install --save body-parser` -- then make
 >  
 > **`app.use(parser.urlencoded({extended: true}))`** - configure the parser to support html forms
 
-### You Do: New (10 minutes / 1:50)
+## You Do: New (10 minutes / 1:50)
 
 > 5 minutes exercise. 5 minutes review.
 
 Let's create a new candidate form. We'll add it to our existing index view...
 
-#### Before You Start Coding...
+### Before You Start Coding...
 
 <details>
   <summary><strong>What did we use in Rails to create an input form?</strong></summary>
@@ -368,11 +368,11 @@ Let's create a new candidate form. We'll add it to our existing index view...
 
 </details>
 
-#### Steps
+### Steps
 
 1.  Using the `action` attribute, the form should direct to `/candidates`.
 
-#### Questions
+### Questions
 
 <details>
   <summary><strong>Why do we set the `name` attribute to something like `candidate[name]`? How does this impact how we access this information in `index.js`?</strong></summary>
@@ -387,12 +387,12 @@ Let's create a new candidate form. We'll add it to our existing index view...
 
 Before we actually create a new candidate in the database, let's make sure we can access the user input submitted through the form.
 
-#### Steps
+### Steps
 
 1. In `index.js`, create an express `POST` route that corresponds with `/candidates`.
 2. The route's only content should be a `res.json()` statement that returns the user input. (Hint: this is stored somewhere in `req`).
 
-#### Questions
+### Questions
 
 <details>
   <summary><strong>How are `<form>` and `req.body` related?</strong></summary>
@@ -425,23 +425,23 @@ Before we actually create a new candidate in the database, let's make sure we ca
 
 > **`res.json(req.body)`** - The server will respond with JSON that contains the user input, which is stored in `req.body`. This should look just like the output of Rails APIs you have created in this course.
 
-#### Bonus:
+### Bonus
 
 1. Why do we configure body-parser with `{ extended: true}`?
 - Is there a form helper library for Express, similar to Rails?
 - Is there a library, like SimpleForm, that generates forms for Bootstrap or Zurb Foundation?
 
 
-### We Do: Create (10 minutes / 2:00)
+## We Do: Create (10 minutes / 2:00)
 
 Let's modify this post route so that it creates a candidate in our database.
 
-#### Steps
+### Steps
 
 1. In `index.js`, use a Mongoose method to create a new candidate. Pass in an argument that contains **only** the candidate's name. (Hint: Again, this is stored somewhere in `req`). `.then`...  
 2. Redirect the user to the show view for the newly-created candidate.
 
-#### Questions
+### Questions
 
 <details>
   <summary><strong>What is `res.redirect`? How is it different from `res.send`, `res.render` and `res.json`?</strong></summary>
@@ -458,17 +458,17 @@ Let's modify this post route so that it creates a candidate in our database.
 >  
 > **`res.redirect()`** - Redirect the user to the new candidate's show view. In the callback, `candidate` represents the new candidate in our database.  
 
-### Break (5 minutes / 2:05)
+## Break (5 minutes / 2:05)
 
-### You Do: Edit/Update (15 minutes / 2:20)
+## You Do: Edit/Update (15 minutes / 2:20)
 
 Onto editing and updating candidates. We'll set up a form in our show view to allow users to submit updated candidate information.
 
-#### Steps
+### Steps
 
 1. In `views/candidates-show.hbs`, the form's `action` attribute should direct to our application's show URL.
 
-#### Questions
+### Questions
 
 <details>
   <summary><strong>Why does `method="post"` even though we are updating (vs. creating) something?</strong></summary>
@@ -483,13 +483,13 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 > **`method="post"`** - Wait, why is this a `POST` method? Aren't we supposed to send a `PUT` or `PATCH` request?  
 
-#### Steps
+### Steps
 
 1. In `index.js`, create a `.post` route in `index.js` that corresponds to our new form.
 2. In it, use a Mongoose method to find and update the candidate in question. (Hint: Refer to the Mongoose [lesson plan](https://github.com/ga-wdi-lessons/mongoose-intro#update-5-min) or [documentation](http://mongoosejs.com/docs/api.html#query_Query-findOneAndUpdate)).
 3. `.then`, redirect the user to the updated candidate's show page.
 
-#### Questions
+### Questions
 
 <details>
   <summary><strong>How come `.findOneAndUpdate` has 3 arguments while `.create` has only 2?</strong></summary>
@@ -504,17 +504,17 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 > **`.findOneAndUpdate()`** - This method takes three arguments: (1) the new params, (2) the candidate to be updated and (3) `new: true`, which causes the modified candidate to be returned in the callback.
 
-### You Do: Delete (10 minutes)
+## You Do: Delete (10 minutes)
 
 > We may not get to this during the lesson, but you should be able to implement this yourselves with the instructions below.
 
 We're almost there! Last bit of CRUD functionality we need to implement is `DELETE`. Let's start by adding a delete button to our show view...
 
-#### Steps
+### Steps
 
 1. Using the `action` attribute, the form should direct to `/candidates/:name/delete`.
 
-#### Questions
+### Questions
 
 <details>
   <summary><strong>Why can't we use `app.delete` for a `DELETE` route?</strong></summary>
@@ -538,7 +538,7 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 
 > Again, **`method="post"`**. What's up with that?  
 
-#### Steps
+### Steps
 
 1. In `index.js`, create a route that corresponds to our delete button.
 2. In it, use Mongoose to find and delete the candidate in question. (Hint: Refer to the Mongoose [lesson plan](https://github.com/ga-wdi-lessons/mongoose-intro#delete-5-min) or [documentation](http://mongoosejs.com/docs/api.html#query_Query-findOneAndRemove)).
