@@ -37,6 +37,8 @@ Then create a new one on which you will do your work...
 $ git checkout -b MyName-express-mongoose
 ```
 
+Check out what the starter code looks like in the browser by running `$nodemon index.js` and then visiting `http://localhost:3001`.
+
 #### And While You're At It...
 
 Install the modules listed in `package.json` and get Mongo running.
@@ -361,7 +363,9 @@ Let's create a new candidate form. We'll add it to our existing index view...
 
 ### Steps
 
-1.  Using the `action` attribute, the form should direct to `/candidates`.
+Create a form in the index view.
+1. Using the `action` attribute, the form should direct to `/candidates`.
+2. Using the `name` attribute, each input should store the value of a candidate attribute (i.e., `name` and `year`) to a key that exists inside of a `candidate` object.
 
 ### Questions
 
@@ -450,7 +454,9 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 
 ### Steps
 
-1. In `views/candidates-show.hbs`, the form's `action` attribute should direct to our application's show URL.
+Create an edit form in the show view.
+1. Using the `action` attribute, the form's `action` attribute should direct to our application's show URL.
+2. Using the `name` attribute, each input should store the value of a candidate attribute (i.e., `name` and `year`) to a key that exists inside of a `candidate` object.
 
 ### Questions
 
