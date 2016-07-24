@@ -549,12 +549,11 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 
 ![Delete 2](http://i.imgur.com/1qF64Tf.png)
 
-## Conclusion
+## Closing / Questions
 
-1. What does `module.exports` do?
-- Why does `method="post"` even though we are updating (vs. creating) something?
-- Why do we use promises and callbacks when calling methods on a Mongoose model?
-
+* What does module.exports do?
+* Why does method="post" even though we are updating (vs. creating) something?
+* Why do we use promises and callbacks when calling methods on a Mongoose model?
 
 ## Homework
 
