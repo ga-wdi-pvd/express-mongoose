@@ -188,7 +188,7 @@ We can test this by...
 <details>
   <summary><strong>Why are we able to write out `mongoose.model("Candidate")` in `seed.js`?</strong></summary>
 
-  > (CHECK ANSWER) Because we defined that candidate in `connection.js`, which has been required.
+  > Because we defined that candidate in `connection.js`, which has been required.
 
   <br/>
 
@@ -392,7 +392,7 @@ Before we actually create a new candidate in the database, let's make sure we ca
 <details>
   <summary><strong>How are `<form>` and `req.body` related?</strong></summary>
 
-  > (CHECK ANSWER) The values a user submits through the form can be found in `req.body` on the back-end.
+  > The values a user submits through the form can be found in `req.body` on the back-end.
 
   <br/>
 
@@ -510,15 +510,6 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
   <summary><strong>Why can't we use `app.delete` for a `DELETE` route?</strong></summary>
 
   > Again, because HTML only supports `GET` and `POST`, not `PUT` `PATCH` or `DELETE`.
-
-  <br/>
-
-</details>
-
-<details>
-  <summary><strong>Why shouldn't you use `app.get` for `DELETE` routes?</strong></summary>
-
-  > (NEED ANSWER).)
 
   <br/>
 
