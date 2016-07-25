@@ -535,3 +535,9 @@ We're almost there! Last bit of CRUD functionality we need to implement is `DELE
 ## Homework
 
 You should now be able to complete the [second part of the YUM homework](https://github.com/ga-wdi-exercises/yum#part-ii-add-express).
+
+## Resources
+
+* [Using ES6 Promises Instead of Callbacks for Mongoose Queries](http://erikaybar.name/using-es6-promises-with-mongoosejs-queries/)
+* [How to Write Middleware for Express Apps](https://stormpath.com/blog/how-to-write-middleware-for-express-apps)
+* [Method Override](https://github.com/expressjs/method-override)
