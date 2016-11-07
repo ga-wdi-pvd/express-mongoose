@@ -31,13 +31,11 @@ Checkout to the proper branch...
 $ git checkout express-mongoose-starter
 ```
 
-Then create a new one on which you will do your work...
+> Optionally, create a new branch on which you will do your work...
 
 ```bash
 $ git checkout -b MyName-express-mongoose
 ```
-
-Check out what the starter code looks like in the browser by running `$nodemon index.js` and then visiting `http://localhost:3001`.
 
 #### And While You're At It...
 
@@ -48,15 +46,12 @@ Install dependencies
   $ npm install
   ```
 
-Start mongo  CLI in another tab/window
-  ```bash
-  $ mongo
-  ```
-
-If you need to, start the mongo server - in **another** tab/window
+Then, start the mongo server - in **another** tab/window
   ```bash
   $ mongod  # Do this one in a separate tab or window.
   ```
+
+Check out what the starter code looks like in the browser by running `$ nodemon` and then visiting `http://localhost:3001`.
 
 ## Express Review (25 minutes / 0:30)
 
@@ -99,7 +94,7 @@ You are more than welcome to catch up when we get to the "You Do's," during whic
 
 ### Why are we using Mongoose?
 
-Like ActiveRecord for Rails, Mongoose is an ORM we can use to represent data from a Mongo database as models in a Javascript back-end.
+Like ActiveRecord for Rails, Mongoose is an ODM we can use to represent data from a Mongo database as models in a Javascript back-end.
 
 ## Connect to Mongoose (10 minutes / 0:45)
 
@@ -176,7 +171,8 @@ Now, create a new `db/seed.js` file. In it we will...
 We can test this by...
   1. Running `$ node db/seed.js` in the Terminal.
   2. Then run `$ mongo` in the Terminal and enter the following commands via the Mongo CLI interface...
-    ```mongo
+
+    ```
     > use whenpresident
     > db.candidates.find()
     ```
@@ -364,6 +360,7 @@ Let's create a new candidate form. We'll add it to our existing index view...
 ### Steps
 
 Create a form in the index view.
+
 1. Using the `action` attribute, the form should direct to `/candidates`.
 2. Using the `name` attribute, each input should store the value of a candidate attribute (i.e., `name` and `year`) to a key that exists inside of a `candidate` object.
 
@@ -475,8 +472,9 @@ Create an edit form in the show view.
 
 ### Steps
 
+<!--  NHO: TODO update diffshot to for update -->
 1. In `index.js`, create a `.post` route in `index.js` that corresponds to our new form.
-2. In it, use a Mongoose method to find and update the candidate in question. (Hint: Refer to the Mongoose [lesson plan](https://github.com/ga-wdi-lessons/mongoose-intro#update-5-min) or [documentation](http://mongoosejs.com/docs/api.html#query_Query-findOneAndUpdate)).
+2. In it, use a Mongoose method to find and update the candidate in question. (Hint: Refer to the Mongoose [lesson plan](https://github.com/ga-wdi-lessons/mongoose-intro#update-5-min) or  [documentation](http://mongoosejs.com/docs/api.html#query_Query-findOneAndUpdate)).
 3. `.then`, redirect the user to the updated candidate's show page.
 
 ### Questions
@@ -493,6 +491,8 @@ Create an edit form in the show view.
 ![Update](http://i.imgur.com/rtQGmQi.png)
 
 > **`.findOneAndUpdate()`** - This method takes three arguments: (1) the new params, (2) the candidate to be updated and (3) `new: true`, which causes the modified candidate to be returned in the callback.
+
+> **Note**: this screenshot cut off a method call, can you think what should happen after the update?
 
 ## You Do: Delete (10 minutes)
 
