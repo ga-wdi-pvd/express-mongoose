@@ -452,6 +452,7 @@ Onto editing and updating candidates. We'll set up a form in our show view to al
 ### Steps
 
 Create an edit form in the show view.
+
 1. Using the `action` attribute, the form's `action` attribute should direct to our application's show URL.
 2. Using the `name` attribute, each input should store the value of a candidate attribute (i.e., `name` and `year`) to a key that exists inside of a `candidate` object.
 
