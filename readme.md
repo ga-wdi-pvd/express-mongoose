@@ -78,17 +78,6 @@ As you're reviewing the app, try to fill in the blanks in the below Rails-to-Exp
 
 Write down **up to three questions** on topics you would like further clarification on. We will spend 15 minutes going over this (and the MVC chart) afterwards.
 
-### Note
-
-You may notice that we do things a bit differently in this example than we have in previous classes. For example, we use promises instead of callbacks when making Mongoose queries.
-
-This is to demonstrate that there is no single way of creating a Mongoose-Express app. If any of these differences seem confusing, don't hesitate to ask an instructor about them!
-
-## Before We Continue!
-
-You are welcome to code along during the "I Do's" and "We Do's" in this lesson plan. We do ask, however, that **if you fall behind, do not attempt to catch up during those sections**. Instead, tilt down your screen and watch / take notes.
-
-You are more than welcome to catch up when we get to the "You Do's," during which the instructors are available to help.
 
 ## Mongoose
 
@@ -101,12 +90,13 @@ Like ActiveRecord for Rails, Mongoose is an ODM we can use to represent data fro
 In order for us to use Mongoose to communicate with our database, we need to link it up to our Express application. We'll do this by...
 * Establishing a connection with a Mongo database.
 * Define a Mongoose schema and model.
-* Generate some seed data.
+
+Then, we will see how mongoose works by generating some seed data!
 
 ### Steps
 
 1. Install Mongoose via the command line: `npm install --save mongoose`.
-2. In `connection.js`, require "mongoose" and save it to a `mongoose` variable.
+2. In `db/connection.js`, require "mongoose" and save it to a `mongoose` variable.
 3. Define a `CandidateSchema` using mongoose's `.Schema()` method.
 4. Define a "Candidate" model built off `CandidateSchema` with `mongoose.model()`.
 5. Connect to our `whenpresident` database using `mongoose.connect()`.
@@ -213,9 +203,23 @@ We can test this by...
 >  
 > **`Candidate.collection.insert(seedData)`** - Create a collection using the JSON contained in our seed file.  
 
-## Break (10 minutes / 1:05)
+## Break - End of Part 1!
 
-## We Do: Index (10 minutes / 1:15)
+## Part 2: CRUD! 
+
+### Note
+
+You may notice that we do things a bit differently in this example than we have in previous classes. For example, we use promises instead of callbacks when making Mongoose queries.
+
+This is to demonstrate that there is no single way of creating a Mongoose-Express app. If any of these differences seem confusing, don't hesitate to ask an instructor about them!
+
+### Before We Continue!
+
+You are welcome to code along during the "I Do's" and "We Do's" in this lesson plan. We do ask, however, that **if you fall behind, do not attempt to catch up during those sections**. Instead, tilt down your screen and watch / take notes.
+
+You are more than welcome to catch up when we get to the "You Do's," during which the instructors are available to help.
+
+###We Do: Index (10 minutes / 1:05)
 
 First order of business: display all candidates stored in the database. We'll do this by adding code to the controller that...
 * Retrieves all of the candidates from the database.
